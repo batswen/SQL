@@ -1,4 +1,4 @@
-# Join
+# Joins
 
 Alle Beispiele verwenden die im selben Verzeichnis vorhandene Beispieldatenbank "Joins.sql"
 
