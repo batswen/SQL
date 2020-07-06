@@ -6,8 +6,6 @@ Alle Beispiele verwenden die im selben Verzeichnis vorhandene Beispieldatenbank 
 Alle Datensätze beider Tabellen werden miteinander verknüpft. Die Länge der Ergebnistabelle ist das Produkt aus den längen der beiden Tabellen. Das Schlüsselwort "CROSS" kann dabei entfallen.
 ### Beispiel
 * Alle Speisen und alle Beilagen sollen in einer Tabelle (Speisekarte) angezeigt werden.
-* Verschiedene miteinander kombinierbare Versicherungen (z. B. Haftpflicht und Unfall)
-
 ```SQL
 SELECT * FROM `hauptgerichte` CROSS JOIN `beilagen`
 bzw
@@ -16,6 +14,7 @@ SELECT h.`bezeichnung` AS 'Hauptgericht',
     h.`preis` * b.`preis` AS 'Preis'
     FROM `hauptgerichte` h CROSS JOIN `beilagen` b
 ```
+* Verschiedene miteinander kombinierbare Versicherungen (z. B. Haftpflicht und Unfall)
 
 ## Inner join
 Alle Datensätze beider Tabellen werden miteinander verknüpft. Die Länge der Ergebnistabelle ist das Produkt aus den längen der beiden Tabellen. Hier ist es möglich durch Vergleich zweier Schlüssel die Auswahl zu beschränken (ON).
