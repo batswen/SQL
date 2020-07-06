@@ -26,8 +26,8 @@ Das Schlüsselwort "INNER" kann dabei entfallen.
 SELECT * FROM `kunden` k INNER JOIN `reservierungen` r
     ON k.`idKunde` = r.`idKunde`
 bzw
-SELECT * FROM `kunden` k INNER JOIN `reservierungen` r
-    USING(k.`idKunde`)
+SELECT * FROM `kunden` INNER JOIN `reservierungen`
+    USING(`idKunde`)
 bzw
 SELECT k.`name` AS 'Kunde',
     r.`datum` AS 'Zeitpunkt'
@@ -36,11 +36,11 @@ SELECT k.`name` AS 'Kunde',
 ```
 
 ## Natural join
-Alle Datensätze beider Tabellen werden miteinander verknüpft. Es werden nur die Einträge in die Ergebnistalle übernommen, per USING (siehe INNER JOIN) verknüpft sind. Das Schlüsselwort "NATURAL" kann dabei entfallen.
+Alle Datensätze beider Tabellen werden miteinander verknüpft. Es werden nur die Einträge in die Ergebnistalle übernommen, die mindestens einen gemeinsamen Schlüssel haben. Hierbei handelt es sich um einen INNER JOIN, der automatisch nach passenden PS/FS-Kombinationen sucht. Das Schlüsselwort "NATURAL" kann dabei entfallen.
 ### Beispiel
 * Anzeige aller Kundenreservierungen
 ```SQL
-SELECT * FROM `kunden` k NATURAL JOIN `reservierungen` r
+SELECT * FROM `kunden` NATURAL JOIN `reservierungen`
 bzw
 SELECT k.`name` AS 'Kunde',
     r.`datum` AS 'Zeitpunkt'
