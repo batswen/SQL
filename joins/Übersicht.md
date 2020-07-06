@@ -48,7 +48,7 @@ SELECT k.`name` AS 'Kunde',
 ```
 
 ## Left outer join
-Alle Datensätze beider Tabellen werden miteinander verknüpft. Es werden alle Einträge der linken Tabelle in die Ergebnistalle übernommen, evtl. fehlende Einträge der rechten Tallen werden durch NULL aufgefüllt. Das Schlüsselwort "OUTER" kann dabei entfallen.
+Alle Datensätze beider Tabellen werden miteinander verknüpft. Es werden alle Einträge der linken Tabelle in die Ergebnistalle übernommen, evtl. fehlende Einträge der rechten Tabelle werden durch NULL aufgefüllt. Das Schlüsselwort "OUTER" kann dabei entfallen.
 ### Beispiel
 * Anzeige aller Kunden und evtl. Kundenreservierungen
 ```SQL
@@ -66,3 +66,6 @@ SELECT k.`name` AS 'Kunde',
     LEFT OUTER JOIN `reservierungen` r
     USING(`idKunde`)
 ```
+
+## Right outer join
+Alle Datensätze beider Tabellen werden miteinander verknüpft. Es werden alle Einträge der rechten Tabelle in die Ergebnistalle übernommen, evtl. fehlende Einträge der linken Tabelle werden durch NULL aufgefüllt. Das Schlüsselwort "OUTER" kann dabei entfallen.
