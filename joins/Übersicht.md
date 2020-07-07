@@ -1,6 +1,6 @@
 # Joins
 
-Alle Beispiele verwenden die im selben Verzeichnis vorhandene Beispieldatenbank "Joins.sql"
+Alle Beispiele verwenden die im selben Verzeichnis vorhandene Beispieldatenbank "futter.sql"
 
 ## Cross join
 Alle Datensätze beider Tabellen werden miteinander verknüpft. Die Länge der Ergebnistabelle ist das Produkt aus den längen der beiden Tabellen. Das Schlüsselwort "CROSS" kann dabei entfallen.
