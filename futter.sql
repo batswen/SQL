@@ -41,7 +41,7 @@ CREATE TABLE `beilagen` (
 INSERT INTO `beilagen` (`idBeilage`, `bezeichnung`, `preis`) VALUES
 (1, 'Nudeln', 5),
 (2, 'Kartoffeln', 6),
-(3, 'Kroketten', 4)
+(3, 'Kroketten', 4),
 (4, 'Pommes Frites', 5);
 
 -- --------------------------------------------------------
@@ -75,18 +75,25 @@ INSERT INTO `hauptgerichte` (`idHauptgericht`, `bezeichnung`, `preis`) VALUES
 
 CREATE TABLE `kunden` (
   `idKunde` int(11) NOT NULL,
-  `name` varchar(50) NOT NULL
+  `name` varchar(50) NOT NULL,
+  `wohnort` varchar(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Daten für Tabelle `kunden`
 --
 
-INSERT INTO `kunden` (`idKunde`, `name`) VALUES
-(1, 'Hans Wurst'),
-(2, 'Susi Sorglos'),
-(3, 'Hans-Peter Körkeling'),
-(4, 'Hola van Sinnen');
+INSERT INTO `kunden` (`idKunde`, `name`, `wohnort`) VALUES
+(1, 'Hans Wurst', 'Wiesbaden'),
+(2, 'Susi Sorglos', 'Frankfurt/Main'),
+(3, 'Hans-Peter Körkeling', 'Köln'),
+(4, 'Hola van Sinnen', 'Düsseldorf'),
+(5, 'Hugon Ego', 'Wiesbaden'),
+(6, 'Stefan Krähe', 'Köln'),
+(7, 'Tanja Wassermann', 'Wiesbaden'),
+(8, 'Meike Schöller-Göhte', 'Niedernhausen'),
+(9, 'Lars Meiermann', 'Niedernhausen'),
+(10, 'Kerstin Müller', 'Wiesbaden');
 
 -- --------------------------------------------------------
 
@@ -106,7 +113,9 @@ CREATE TABLE `reservierungen` (
 
 INSERT INTO `reservierungen` (`idReservierung`, `idKunde`, `datum`) VALUES
 (1, 1, '2020-05-20 16:30:00'),
-(2, 4, '2020-07-06 11:13:44');
+(2, 4, '2020-07-06 11:15:00'),
+(3, 1, '2020-01-03 18:30:00'),
+(4, 3, '2020-03-03 16:45:00');
 
 --
 -- Indizes der exportierten Tabellen
@@ -133,13 +142,13 @@ ALTER TABLE `reservierungen`
 -- AUTO_INCREMENT für Tabelle `kunden`
 --
 ALTER TABLE `kunden`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idKunde` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT für Tabelle `reservierungen`
 --
 ALTER TABLE `reservierungen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idReservierung` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints der exportierten Tabellen
