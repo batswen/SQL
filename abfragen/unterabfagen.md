@@ -12,7 +12,7 @@ Einträge vorhanden sind.
 SELECT `bezeichnung`
     FROM `hauptgerichte`
     ORDER BY `preis` DESC
-    LIMIT 1 -- Hier Richtig, aber nicht allgemeingültig
+    LIMIT 1 -- Manchmal möglich, aber nicht allgemeingültig
 ```
 ### Lösung
 1. Suche nach dem Preis mit Hilfe von MAX()

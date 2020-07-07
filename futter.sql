@@ -41,7 +41,8 @@ CREATE TABLE `beilagen` (
 INSERT INTO `beilagen` (`idBeilage`, `bezeichnung`, `preis`) VALUES
 (1, 'Nudeln', 5),
 (2, 'Kartoffeln', 6),
-(3, 'Kroketten', 4);
+(3, 'Kroketten', 4)
+(4, 'Pommes Frites', 5);
 
 -- --------------------------------------------------------
 
@@ -62,7 +63,9 @@ CREATE TABLE `hauptgerichte` (
 INSERT INTO `hauptgerichte` (`idHauptgericht`, `bezeichnung`, `preis`) VALUES
 (1, 'Schnitzel', 8),
 (2, 'Bratwurst', 6),
-(3, 'Frikadellen', 7);
+(3, 'Frikadellen', 7),
+(4, 'Frischfisch', 8),
+(5, 'Tofuzeug', 4);
 
 -- --------------------------------------------------------
 
