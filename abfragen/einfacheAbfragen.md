@@ -12,9 +12,11 @@
 
 6. Listen Sie alle Kunden auf, die bereits eine Reservierung gemacht haben
 
-7. Listen Sie alle Kunden auf und fügen Sie eventuelle Reservierungen hinzu
+7. Listen Sie alle Kunden auf und fügen Sie eventuelle Reservierungen hinzu. Das Ergebnis soll nur den Namen und das Datum beinhalten
 
 8. Aus wie vielen Städten stammen die Kunden
 
+9. Nennen Sie die Städte (jeweils nur einmal)
+
 # Abfragen mit Gruppierungen
-* Listen Sie die Städte der Kunden und die Anzahl der Kunden aus der jeweiligen Stadt, zeigen Sie die Stadt mit den meisten Kunden zuerst
+1. Listen Sie die Städte der Kunden und die Anzahl der Kunden aus der jeweiligen Stadt, zeigen Sie die Stadt mit den meisten Kunden zuerst. Das Ergebnis soll wie folgt aussehen: Wohnort, Kunden

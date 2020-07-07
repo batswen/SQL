@@ -1,6 +1,6 @@
-# Lösungen
+# Einfache Abfragen
+### Lösungen
 Manchmal sind mehrere Lösungen möglich
-
 1. Suchen Sie alle Nahrungsmittel, die mehr als 5 € kosten.
 ```SQL
 SELECT *
@@ -36,4 +36,64 @@ SELECT
     h.`preis` * b.`preis` AS 'Preis'
     FROM `hauptgerichte` h
     CROSS JOIN `beilagen` b
+```
+
+4. Listen Sie alle Wiesbadener Kunden auf
+```SQL
+SELECT
+    *
+    FROM `kunden`
+    WHERE `wohnort` = 'Wiesbaden'
+```
+
+5. Wie viele Kunden leben in Niedernhausen, das Ergebnis soll wie folgt aussehen: "{ANZAHL} Kunden wohnen in Niedernhausen"
+```SQL
+SELECT
+    CONCAT(
+        COUNT(`idKunde`),
+        ' Kunden wohnen in Niedernhausen'
+    ) AS 'Ergebnis'
+    FROM `kunden`
+    WHERE `wohnort` = 'Niedernhausen'
+```
+
+6. Listen Sie alle Kunden auf, die bereits eine Reservierung gemacht haben
+```SQL
+SELECT
+    DISTINCT `name`
+    FROM `kunden`
+    NATURAL JOIN `reservierungen`
+```
+
+7. Listen Sie alle Kunden auf und fügen Sie eventuelle Reservierungen hinzu. Das Ergebnis soll nur den Namen und das Datum beinhalten
+```SQL
+SELECT
+    `name` AS 'Kunde', `datum` AS 'Datum'
+    FROM `kunden`
+    LEFT OUTER JOIN `reservierungen`
+    USING(`idKunde`)
+```
+
+8. Aus wie vielen Städten stammen die Kunden
+```SQL
+SELECT
+    COUNT(DISTINCT `wohnort`)
+    FROM `kunden`
+```
+
+9. Nennen Sie die Städte (jeweils nur einmal)
+```SQL
+SELECT
+    DISTINCT `wohnort`
+    FROM `kunden`
+```
+# Abfragen mit Gruppierungen
+1. Listen Sie die Städte der Kunden und die Anzahl der Kunden aus der jeweiligen Stadt, zeigen Sie die Stadt mit den meisten Kunden zuerst
+```SQL
+SELECT
+    `wohnort` AS 'Wohnort',
+    COUNT(`idKunde`) AS 'Kunden'
+    FROM `kunden`
+    GROUP BY `wohnort`
+    ORDER BY COUNT(`idKunde`) DESC
 ```
