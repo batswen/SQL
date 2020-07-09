@@ -27,8 +27,8 @@ SELECT {SPALTEN bzw *}
     FROM {tabelle}
     [JOIN {tabelle}]...
     WHERE {bedingungen}
-    ORDER BY {spalte} ASC|DESC
     GROUP BY {spalte}
     HAVING {bedingungen}
+    ORDER BY {spalte} ASC|DESC
     LIMIT {anzahl}
 ```
