@@ -36,7 +36,7 @@ SELECT k.`name` AS 'Kunde',
 ```
 
 ## Natural join
-Alle Datensätze beider Tabellen werden miteinander verknüpft. Es werden nur die Einträge in die Ergebnistalle übernommen, die mindestens einen gemeinsamen Schlüssel haben. Hierbei handelt es sich um einen INNER JOIN, der automatisch nach passenden PS/FS-Kombinationen sucht. Das Schlüsselwort "NATURAL" kann dabei entfallen.
+Alle Datensätze beider Tabellen werden miteinander verknüpft. Es werden nur die Einträge in die Ergebnistalle übernommen, die mindestens einen gemeinsamen Schlüssel haben. Hierbei handelt es sich um einen INNER JOIN, der automatisch nach passenden PS/FS-Kombinationen sucht.
 ### Beispiel
 * Anzeige aller Kundenreservierungen
 ```SQL

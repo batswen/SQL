@@ -31,3 +31,5 @@ SELECT `bezeichnung`
     FROM `hauptgerichte`
     WHERE `preis` = (SELECT MAX(`preis`) FROM `hauptgerichte`)
 ```
+
+1. Finden Sie alle Kunden, die bisher mehr als einmal Reserviert haben

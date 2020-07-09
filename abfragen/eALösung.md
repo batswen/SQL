@@ -5,7 +5,7 @@ Manchmal sind mehrere Lösungen möglich
 ```SQL
 SELECT *
     FROM `hauptgerichte`
-    WHERE `preis` >= 5
+    WHERE `preis` > 5
 
 Oder alle Nahrungsmittel (Hauptgericht und Beilage):
 SELECT *

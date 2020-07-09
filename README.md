@@ -22,11 +22,13 @@
     `preis` int(11) NOT NULL
 
 ### Syntax des SELECT-Befehls
-`SELECT {SPALTEN bzw *}`
-`    FROM {tabelle}`
-`    [JOIN {tabelle}]...`
-`    WHERE {bedingungen}`
-`    ORDER BY {spalte} ASC|DESC`
-`    GROUP BY {spalte}`
-`    HAVING {bedingungen}`
-`    LIMIT {anzahl}`
+```
+SELECT {SPALTEN bzw *}
+    FROM {tabelle}
+    [JOIN {tabelle}]...
+    WHERE {bedingungen}
+    ORDER BY {spalte} ASC|DESC
+    GROUP BY {spalte}
+    HAVING {bedingungen}
+    LIMIT {anzahl}
+```
