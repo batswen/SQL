@@ -18,5 +18,7 @@
 
 9. Nennen Sie die Städte (jeweils nur einmal)
 
+10. Listen Sie alle Kunden auf, sortiert nach Nach- und Vorname
+
 # Abfragen mit Gruppierungen
 1. Listen Sie die Städte der Kunden und die Anzahl der Kunden aus der jeweiligen Stadt, zeigen Sie die Stadt mit den meisten Kunden zuerst. Das Ergebnis soll wie folgt aussehen: Wohnort, Kunden

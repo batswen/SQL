@@ -25,7 +25,7 @@
 ```
 SELECT {SPALTEN bzw *}
     FROM {tabelle}
-    [JOIN {tabelle}]...
+    JOIN {tabelle}...
     WHERE {bedingungen}
     GROUP BY {spalte}
     HAVING {bedingungen}

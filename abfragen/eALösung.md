@@ -87,6 +87,15 @@ SELECT
     DISTINCT `wohnort`
     FROM `kunden`
 ```
+
+10. Listen Sie alle Kunden auf, sortiert nach Nach- und Vorname
+```SQL
+SELECT
+    *
+    FROM `kunden`
+    ORDER BY `nachname`, `vorname`
+```
+
 # Abfragen mit Gruppierungen
 1. Listen Sie die Städte der Kunden und die Anzahl der Kunden aus der jeweiligen Stadt, zeigen Sie die Stadt mit den meisten Kunden zuerst
 ```SQL
