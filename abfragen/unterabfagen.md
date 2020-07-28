@@ -38,6 +38,3 @@ Abfrage nicht benutzt wird, z. B.:
 SELECT *
     FROM (SELECT * FROM `hauptgerichte`) AS a /* !!! */
 ```
-
-### Aufgaben
-1. Finden Sie alle Kunden, die bisher mehr als einmal Reserviert haben

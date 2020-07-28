@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 06. Jul 2020 um 13:22
+-- Erstellungszeit: 28. Jul 2020 um 15:08
 -- Server-Version: 10.4.6-MariaDB
 -- PHP-Version: 7.3.9
 
@@ -19,8 +19,34 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Datenbank: `joins`
+-- Datenbank: `essen`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `beilagelieferant`
+--
+
+CREATE TABLE `beilagelieferant` (
+  `idLieferant` int(11) NOT NULL,
+  `idBeilage` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Daten für Tabelle `beilagelieferant`
+--
+
+INSERT INTO `beilagelieferant` (`idLieferant`, `idBeilage`) VALUES
+(1, 1),
+(1, 5),
+(2, 3),
+(2, 4),
+(3, 1),
+(3, 2),
+(3, 3),
+(3, 4),
+(3, 5);
 
 -- --------------------------------------------------------
 
@@ -44,6 +70,56 @@ INSERT INTO `beilagen` (`idBeilage`, `bezeichnung`, `preis`) VALUES
 (3, 'Kroketten', 4),
 (4, 'Pommes Frites', 5),
 (5, 'Eisbergsalat', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `bestellungbeilage`
+--
+
+CREATE TABLE `bestellungbeilage` (
+  `idBestellung` int(11) NOT NULL,
+  `idBeilage` int(11) NOT NULL,
+  `menge` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `bestellungen`
+--
+
+CREATE TABLE `bestellungen` (
+  `idBestellung` int(11) NOT NULL,
+  `idKunde` int(11) NOT NULL,
+  `datum` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Daten für Tabelle `bestellungen`
+--
+
+INSERT INTO `bestellungen` (`idBestellung`, `idKunde`, `datum`) VALUES
+(1, 1, '2020-07-28 10:06:35'),
+(2, 3, '2020-07-28 10:06:35'),
+(3, 2, '2020-07-28 10:06:45'),
+(4, 6, '2020-07-28 10:06:45'),
+(5, 3, '2020-07-28 10:06:52'),
+(6, 10, '2020-07-28 10:06:52'),
+(7, 11, '2020-07-28 10:06:59'),
+(8, 12, '2020-07-28 10:06:59');
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `bestellunghauptgericht`
+--
+
+CREATE TABLE `bestellunghauptgericht` (
+  `idBestellung` int(11) NOT NULL,
+  `idHauptgericht` int(11) NOT NULL,
+  `menge` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -72,6 +148,33 @@ INSERT INTO `hauptgerichte` (`idHauptgericht`, `bezeichnung`, `preis`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Tabellenstruktur für Tabelle `hauptgerichtlieferant`
+--
+
+CREATE TABLE `hauptgerichtlieferant` (
+  `idLieferant` int(11) NOT NULL,
+  `idHauptgericht` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Daten für Tabelle `hauptgerichtlieferant`
+--
+
+INSERT INTO `hauptgerichtlieferant` (`idLieferant`, `idHauptgericht`) VALUES
+(1, 1),
+(1, 2),
+(1, 3),
+(1, 5),
+(2, 2),
+(2, 3),
+(2, 5),
+(2, 6),
+(4, 4),
+(4, 6);
+
+-- --------------------------------------------------------
+
+--
 -- Tabellenstruktur für Tabelle `kunden`
 --
 
@@ -79,7 +182,7 @@ CREATE TABLE `kunden` (
   `idKunde` int(11) NOT NULL,
   `vorname` varchar(50) NOT NULL,
   `nachname` varchar(50) NOT NULL,
-  `wohnort` varchar(50)
+  `wohnort` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -106,6 +209,29 @@ INSERT INTO `kunden` (`idKunde`, `vorname`, `nachname`, `wohnort`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Tabellenstruktur für Tabelle `lieferanten`
+--
+
+CREATE TABLE `lieferanten` (
+  `idLieferant` int(11) NOT NULL,
+  `firma` varchar(50) NOT NULL,
+  `ort` varchar(50) NOT NULL,
+  `telefon` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Daten für Tabelle `lieferanten`
+--
+
+INSERT INTO `lieferanten` (`idLieferant`, `firma`, `ort`, `telefon`) VALUES
+(1, 'Gutes Essen GmbH', 'Frankfurt/Main', '069-7828362109'),
+(2, 'Foods\'R\'Us', 'Wiesbaden', '0611-2348723492'),
+(3, 'Beschte Beilagen KG', 'Wiesbaden', '0611-9483568436'),
+(4, 'Frischer Fisch AG', 'Limburg/Lahn', '06431-7845122356');
+
+-- --------------------------------------------------------
+
+--
 -- Tabellenstruktur für Tabelle `reservierungen`
 --
 
@@ -120,22 +246,75 @@ CREATE TABLE `reservierungen` (
 --
 
 INSERT INTO `reservierungen` (`idReservierung`, `idKunde`, `datum`) VALUES
-(1, 1, '2020-05-20 16:30:00'),
-(2, 4, '2020-07-06 11:15:00'),
-(3, 1, '2020-01-03 18:30:00'),
-(4, 3, '2020-03-03 16:45:00'),
-(5, 4, '2020-07-09 18:30:00'),
-(6, 10, '2020-07-09 18:30:00');
+(1, 1, '2020-05-20 14:30:00'),
+(2, 4, '2020-07-06 09:15:00'),
+(3, 1, '2020-01-03 17:30:00'),
+(4, 3, '2020-03-03 15:45:00'),
+(5, 4, '2020-07-09 16:30:00'),
+(6, 10, '2020-07-09 16:30:00');
 
 --
 -- Indizes der exportierten Tabellen
 --
 
 --
+-- Indizes für die Tabelle `beilagelieferant`
+--
+ALTER TABLE `beilagelieferant`
+  ADD PRIMARY KEY (`idLieferant`,`idBeilage`),
+  ADD KEY `idBeilage` (`idBeilage`);
+
+--
+-- Indizes für die Tabelle `beilagen`
+--
+ALTER TABLE `beilagen`
+  ADD PRIMARY KEY (`idBeilage`);
+
+--
+-- Indizes für die Tabelle `bestellungbeilage`
+--
+ALTER TABLE `bestellungbeilage`
+  ADD PRIMARY KEY (`idBestellung`,`idBeilage`),
+  ADD KEY `idBeilage` (`idBeilage`);
+
+--
+-- Indizes für die Tabelle `bestellungen`
+--
+ALTER TABLE `bestellungen`
+  ADD PRIMARY KEY (`idBestellung`,`idKunde`),
+  ADD KEY `idKunde` (`idKunde`);
+
+--
+-- Indizes für die Tabelle `bestellunghauptgericht`
+--
+ALTER TABLE `bestellunghauptgericht`
+  ADD PRIMARY KEY (`idBestellung`,`idHauptgericht`),
+  ADD KEY `idHauptgericht` (`idHauptgericht`);
+
+--
+-- Indizes für die Tabelle `hauptgerichte`
+--
+ALTER TABLE `hauptgerichte`
+  ADD PRIMARY KEY (`idHauptgericht`);
+
+--
+-- Indizes für die Tabelle `hauptgerichtlieferant`
+--
+ALTER TABLE `hauptgerichtlieferant`
+  ADD PRIMARY KEY (`idLieferant`,`idHauptgericht`),
+  ADD KEY `idHauptgericht` (`idHauptgericht`);
+
+--
 -- Indizes für die Tabelle `kunden`
 --
 ALTER TABLE `kunden`
   ADD PRIMARY KEY (`idKunde`);
+
+--
+-- Indizes für die Tabelle `lieferanten`
+--
+ALTER TABLE `lieferanten`
+  ADD PRIMARY KEY (`idLieferant`);
 
 --
 -- Indizes für die Tabelle `reservierungen`
@@ -145,24 +324,42 @@ ALTER TABLE `reservierungen`
   ADD KEY `idKunde` (`idKunde`);
 
 --
--- AUTO_INCREMENT für exportierte Tabellen
---
-
---
--- AUTO_INCREMENT für Tabelle `kunden`
---
-ALTER TABLE `kunden`
-  MODIFY `idKunde` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT für Tabelle `reservierungen`
---
-ALTER TABLE `reservierungen`
-  MODIFY `idReservierung` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- Constraints der exportierten Tabellen
 --
+
+--
+-- Constraints der Tabelle `beilagelieferant`
+--
+ALTER TABLE `beilagelieferant`
+  ADD CONSTRAINT `beilagelieferant_ibfk_1` FOREIGN KEY (`idLieferant`) REFERENCES `lieferanten` (`idLieferant`),
+  ADD CONSTRAINT `beilagelieferant_ibfk_2` FOREIGN KEY (`idBeilage`) REFERENCES `beilagen` (`idBeilage`);
+
+--
+-- Constraints der Tabelle `bestellungbeilage`
+--
+ALTER TABLE `bestellungbeilage`
+  ADD CONSTRAINT `bestellungbeilage_ibfk_1` FOREIGN KEY (`idBeilage`) REFERENCES `beilagen` (`idBeilage`),
+  ADD CONSTRAINT `bestellungbeilage_ibfk_2` FOREIGN KEY (`idBestellung`) REFERENCES `bestellungen` (`idBestellung`);
+
+--
+-- Constraints der Tabelle `bestellungen`
+--
+ALTER TABLE `bestellungen`
+  ADD CONSTRAINT `bestellungen_ibfk_1` FOREIGN KEY (`idKunde`) REFERENCES `kunden` (`idKunde`);
+
+--
+-- Constraints der Tabelle `bestellunghauptgericht`
+--
+ALTER TABLE `bestellunghauptgericht`
+  ADD CONSTRAINT `bestellunghauptgericht_ibfk_1` FOREIGN KEY (`idHauptgericht`) REFERENCES `hauptgerichte` (`idHauptgericht`),
+  ADD CONSTRAINT `bestellunghauptgericht_ibfk_2` FOREIGN KEY (`idBestellung`) REFERENCES `bestellungen` (`idBestellung`);
+
+--
+-- Constraints der Tabelle `hauptgerichtlieferant`
+--
+ALTER TABLE `hauptgerichtlieferant`
+  ADD CONSTRAINT `hauptgerichtlieferant_ibfk_1` FOREIGN KEY (`idLieferant`) REFERENCES `lieferanten` (`idLieferant`),
+  ADD CONSTRAINT `hauptgerichtlieferant_ibfk_2` FOREIGN KEY (`idHauptgericht`) REFERENCES `hauptgerichte` (`idHauptgericht`);
 
 --
 -- Constraints der Tabelle `reservierungen`
