@@ -31,5 +31,12 @@ SELECT `bezeichnung`
     FROM `hauptgerichte`
     WHERE `preis` = (SELECT MAX(`preis`) FROM `hauptgerichte`)
 ```
+### Achtung
+Unterabfragen in der FROM-Klausel benötigen einen Alias auch wenn er in der Abfrage,
+nicht benutzt wird, z. B.:
+```SQL
+SELECT *
+    FROM (SELECT * FROM `hauptgerichte`) AS a /* !!! */
+```
 
 1. Finden Sie alle Kunden, die bisher mehr als einmal Reserviert haben

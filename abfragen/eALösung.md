@@ -166,3 +166,25 @@ SELECT
     NATURAL JOIN `hauptgerichte`
     GROUP BY `firma`
 ```
+
+4. Wie viele Nahrungsmittel werden von jedem `Lieferanten` geliefert
+```SQL
+SELECT
+	`firma` AS 'Firma',
+    COUNT(*) AS 'Anzahl'
+    FROM
+    (
+        SELECT
+            *
+            FROM `lieferanten`
+            NATURAL JOIN `hauptgerichtlieferant`
+            NATURAL JOIN `hauptgerichte`
+         UNION
+         SELECT
+            *
+            FROM `lieferanten`
+            NATURAL JOIN `beilagelieferant`
+            NATURAL JOIN `beilagen`
+    ) AS a
+	GROUP BY `firma`
+```
