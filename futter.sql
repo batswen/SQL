@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 28. Jul 2020 um 15:08
+-- Erstellungszeit: 28. Jul 2020 um 15:35
 -- Server-Version: 10.4.6-MariaDB
 -- PHP-Version: 7.3.9
 
@@ -83,6 +83,16 @@ CREATE TABLE `bestellungbeilage` (
   `menge` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Daten für Tabelle `bestellungbeilage`
+--
+
+INSERT INTO `bestellungbeilage` (`idBestellung`, `idBeilage`, `menge`) VALUES
+(1, 5, 1),
+(4, 1, 2),
+(7, 4, 1),
+(8, 2, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -100,14 +110,14 @@ CREATE TABLE `bestellungen` (
 --
 
 INSERT INTO `bestellungen` (`idBestellung`, `idKunde`, `datum`) VALUES
-(1, 1, '2020-07-28 10:06:35'),
-(2, 3, '2020-07-28 10:06:35'),
+(1, 1, '2020-07-05 04:24:35'),
+(2, 3, '2020-06-15 16:15:35'),
 (3, 2, '2020-07-28 10:06:45'),
-(4, 6, '2020-07-28 10:06:45'),
-(5, 3, '2020-07-28 10:06:52'),
+(4, 6, '2020-06-10 14:18:22'),
+(5, 3, '2020-07-06 17:24:52'),
 (6, 10, '2020-07-28 10:06:52'),
-(7, 11, '2020-07-28 10:06:59'),
-(8, 12, '2020-07-28 10:06:59');
+(7, 11, '2020-07-23 14:06:59'),
+(8, 12, '2020-07-25 17:36:21');
 
 -- --------------------------------------------------------
 
@@ -120,6 +130,20 @@ CREATE TABLE `bestellunghauptgericht` (
   `idHauptgericht` int(11) NOT NULL,
   `menge` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Daten für Tabelle `bestellunghauptgericht`
+--
+
+INSERT INTO `bestellunghauptgericht` (`idBestellung`, `idHauptgericht`, `menge`) VALUES
+(1, 1, 1),
+(2, 2, 2),
+(3, 3, 3),
+(4, 4, 1),
+(5, 5, 2),
+(6, 6, 1),
+(7, 1, 1),
+(8, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -281,8 +305,7 @@ ALTER TABLE `bestellungbeilage`
 -- Indizes für die Tabelle `bestellungen`
 --
 ALTER TABLE `bestellungen`
-  ADD PRIMARY KEY (`idBestellung`,`idKunde`),
-  ADD KEY `idKunde` (`idKunde`);
+  ADD PRIMARY KEY (`idBestellung`,`idKunde`);
 
 --
 -- Indizes für die Tabelle `bestellunghauptgericht`

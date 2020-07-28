@@ -138,6 +138,21 @@ SELECT `bezeichnung`, `firma` FROM `lieferanten`
 	NATURAL JOIN `beilagelieferant`
     NATURAL JOIN `beilagen`
 ```
+
+16. Zeigen Sie alle Kunden und ihre bestellten Hauptgerichte
+```SQL
+SELECT
+	CONCAT(`vorname`, ' ', `nachname`) AS 'Kunde',
+    `datum` AS 'Datum',
+    `menge` AS 'Anzahl',
+    `bezeichnung` AS 'Was',
+    `menge` * `preis` AS 'Preis'
+    FROM `kunden`
+    NATURAL JOIN `bestellungen`
+    NATURAL JOIN `bestellunghauptgericht`
+    NATURAL JOIN `hauptgerichte`
+```
+
 # Abfragen mit Gruppierungen
 1. Listen Sie die Städte der Kunden und die Anzahl der Kunden aus der jeweiligen Stadt, zeigen Sie die Stadt mit den meisten Kunden zuerst
 ```SQL
