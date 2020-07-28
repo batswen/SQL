@@ -96,6 +96,48 @@ SELECT
     ORDER BY `nachname`, `vorname`
 ```
 
+11. Finden Sie alle Kunden, die 'Müller' heißen und bereits mindestens einmal Reserviert haben
+```SQL
+SELECT * FROM `kunden`
+	NATURAL JOIN `reservierungen`
+    WHERE `nachname` = 'Müller'
+```
+
+12. Beim welchem Lieferanten kann 'Eisbergsalat' bestellt werden
+```SQL
+SELECT
+	*
+    FROM `lieferanten`
+    NATURAL JOIN `beilagelieferant`
+    NATURAL JOIN `beilagen` AS b
+    WHERE b.`bezeichnung` = 'Eisbergsalat'
+```
+
+13. Wie viele 'Wassermann's sind in der Datenbank eingetragen
+```SQL
+SELECT
+    COUNT(*)
+    FROM `kunden`
+    WHERE `nachname` = 'Wassermann'
+```
+14. Wie viele `Nachname`n sind in der Datenbank eingetragen
+```SQL
+SELECT COUNT(DISTINCT `nachname`) AS 'Anzahl'
+	FROM `kunden`
+```
+
+15. Zeigen Sie alle Nahrungsmittel mit allen `Lieferanten`
+```SQL
+SELECT `bezeichnung`, `firma` FROM `lieferanten`
+	NATURAL JOIN `hauptgerichtlieferant`
+    NATURAL JOIN `hauptgerichte`
+
+UNION
+
+SELECT `bezeichnung`, `firma` FROM `lieferanten`
+	NATURAL JOIN `beilagelieferant`
+    NATURAL JOIN `beilagen`
+```
 # Abfragen mit Gruppierungen
 1. Listen Sie die Städte der Kunden und die Anzahl der Kunden aus der jeweiligen Stadt, zeigen Sie die Stadt mit den meisten Kunden zuerst
 ```SQL
@@ -105,4 +147,22 @@ SELECT
     FROM `kunden`
     GROUP BY `wohnort`
     ORDER BY COUNT(`idKunde`) DESC
+```
+
+2. Wie oft kommt jeder `Nachname` vor
+```SQL
+SELECT `nachname`, COUNT(*)
+	FROM `kunden`
+	GROUP BY `nachname`
+```
+
+3. Wie viele `Hauptgericht`e werden von jedem `Lieferanten` geliefert
+```SQL
+SELECT
+    `firma` AS 'Firma',
+    COUNT(*) AS 'Anzahl'
+    FROM `lieferanten`
+    NATURAL JOIN `hauptgerichtlieferant`
+    NATURAL JOIN `hauptgerichte`
+    GROUP BY `firma`
 ```

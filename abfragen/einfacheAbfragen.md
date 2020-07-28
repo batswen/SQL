@@ -20,5 +20,21 @@
 
 10. Listen Sie alle Kunden auf, sortiert nach Nach- und Vorname
 
+11. Finden Sie alle Kunden, die 'Müller' heißen und bereits mindestens einmal Reserviert haben
+
+12. Beim welchem Lieferanten kann Eisbergsalat bestellt werden
+
+13. Wie viele 'Wassermann's sind in der Datenbank eingetragen
+
+14. Wie viele `Nachname`n sind in der Datenbank eingetragen
+
+15. Zeigen Sie alle Nahrungsmittel mit allen `Lieferanten`
+
 # Abfragen mit Gruppierungen
 1. Listen Sie die Städte der Kunden und die Anzahl der Kunden aus der jeweiligen Stadt, zeigen Sie die Stadt mit den meisten Kunden zuerst. Das Ergebnis soll wie folgt aussehen: Wohnort, Kunden
+
+2. Wie oft kommt jeder `Nachname` vor
+
+3. Wie viele `Hauptgericht`e werden von jedem `Lieferanten` geliefert
+
+4. Wie viele Nahrungsmittel werden von jedem `Lieferanten` geliefert
