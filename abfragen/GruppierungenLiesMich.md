@@ -4,8 +4,7 @@ Bei der Gruppierung werden von mehrern Datensätzen nur ein Datensatz in die Erg
 
 Jeder Nachname wird nur einmal angezeigt:
 ```SQL
-SELECT
-    DISTINCT `nachname`
+SELECT DISTINCT `nachname`
     FROM `kunden`
 
 /* oder */

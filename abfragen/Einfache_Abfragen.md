@@ -139,7 +139,7 @@ SELECT `bezeichnung`, `firma` FROM `lieferanten`
 ```
 
 16. Zeigen Sie alle Kunden und ihre bestellten Hauptgerichte. Das Ergebnis soll wie folgt angezeigt werden:
-Kunde (enthält \`vorname\` und \`nachnam\`, 'Datum', 'Menge', 'Bezeichnung', 'Preis')
+Kunde (enthält \`vorname\` und \`nachname\`, 'Datum', 'Menge', 'Bezeichnung', 'Preis')
 ```SQL
 SELECT
 	CONCAT(`vorname`, ' ', `nachname`) AS 'Kunde',
