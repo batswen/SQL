@@ -17,7 +17,7 @@ SELECT
 
 /*
 Bei der Frage wie oft jeder Nachname in der Tabelle enthalten ist kann
-nach der Gruppierung die Anzahl der enthaltenen Einträgen gezählt werden
+nach der Gruppierung die Anzahl der enthaltenen Einträge gezählt werden
 */
 
 SELECT
