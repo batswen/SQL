@@ -153,6 +153,20 @@ SELECT
     NATURAL JOIN `hauptgerichte`
 ```
 
+17. Ändern Sie die Stadt von 'Susi Sorglos' in 'Wiesbaden'
+```SQL
+UPDATE `kunden`
+    SET `wohnort`='Wiesbaden'
+    WHERE `vorname` = 'Susi' AND `nachname` = 'Sorglos'
+```
+
+18. Löschen Sie den Eintrag von 'Susi Sorglos'
+```SQL
+DELETE FROM `kunden`
+    WHERE `vorname` = 'Susi' AND `nachname` = 'Sorglos'
+```
+19. Warum schlögt diese Anweisung fehl
+
 # Abfragen mit Gruppierungen
 1. Listen Sie die Städte der Kunden und die Anzahl der Kunden aus der jeweiligen Stadt, zeigen Sie die Stadt mit den meisten Kunden zuerst
 ```SQL
@@ -164,14 +178,14 @@ SELECT
     ORDER BY COUNT(`idKunde`) DESC
 ```
 
-2. Wie oft kommt jeder `Nachname` vor
+2. Wie oft kommt jeder ``Nachname`` vor
 ```SQL
 SELECT `nachname`, COUNT(*)
 	FROM `kunden`
 	GROUP BY `nachname`
 ```
 
-3. Wie viele `Hauptgericht`e werden von jedem `Lieferanten` geliefert
+3. Wie viele ``Hauptgericht``e werden von jedem ``Lieferanten`` geliefert
 ```SQL
 SELECT
     `firma` AS 'Firma',
@@ -182,7 +196,7 @@ SELECT
     GROUP BY `firma`
 ```
 
-4. Wie viele Nahrungsmittel werden von jedem `Lieferanten` geliefert
+4. Wie viele Nahrungsmittel werden von jedem ``Lieferanten`` geliefert
 ```SQL
 SELECT
 	`firma` AS 'Firma',

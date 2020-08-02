@@ -26,17 +26,23 @@
 
 13. Wie viele 'Wassermann's sind in der Datenbank eingetragen
 
-14. Wie viele `Nachname`n sind in der Datenbank eingetragen
+14. Wie viele ``Nachname``n sind in der Datenbank eingetragen
 
-15. Zeigen Sie alle Nahrungsmittel mit allen `Lieferanten`
+15. Zeigen Sie alle Nahrungsmittel mit allen ``Lieferanten``
 
 16. Zeigen Sie alle Kunden und ihre bestellten Hauptgerichte
+
+17. Ändern Sie die Stadt von 'Susi Sorglos' in 'Wiesbaden'
+
+18. Löschen Sie den Eintrag von 'Susi Sorglos'
+
+19. Warum schlögt diese Anweisung fehl
 
 # Abfragen mit Gruppierungen
 1. Listen Sie die Städte der Kunden und die Anzahl der Kunden aus der jeweiligen Stadt, zeigen Sie die Stadt mit den meisten Kunden zuerst. Das Ergebnis soll wie folgt aussehen: Wohnort, Kunden
 
-2. Wie oft kommt jeder `Nachname` vor
+2. Wie oft kommt jeder ``Nachname`` vor
 
-3. Wie viele `Hauptgericht`e werden von jedem `Lieferanten` geliefert
+3. Wie viele ``Hauptgericht``e werden von jedem ``Lieferanten`` geliefert
 
-4. Wie viele Nahrungsmittel werden von jedem `Lieferanten` geliefert
+4. Wie viele Nahrungsmittel werden von jedem ``Lieferanten`` geliefert

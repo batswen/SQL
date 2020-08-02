@@ -11,3 +11,15 @@ SELECT
             GROUP by `idKunde`
             HAVING COUNT(`idReservierung`) > 1)
 ```
+
+2. Finden Sie alle Kunden, die noch nie Reserviert haben
+```SQL
+SELECT
+    *
+    FROM `kunden`
+    WHERE `idKunde` <> ALL
+        (SELECT `idKunde`
+            FROM `reservierungen`
+            GROUP by `idKunde`
+            HAVING COUNT(`idReservierung`) > 0)
+```
