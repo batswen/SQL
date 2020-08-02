@@ -185,7 +185,7 @@ SELECT `nachname`, COUNT(*)
 	GROUP BY `nachname`
 ```
 
-3. Wie viele ``Hauptgericht``e werden von jedem ``Lieferanten`` geliefert
+3. Wie viele \`Hauptgericht\`e werden von jedem ``Lieferanten`` geliefert
 ```SQL
 SELECT
     `firma` AS 'Firma',
