@@ -113,14 +113,14 @@ SELECT
     WHERE b.`bezeichnung` = 'Eisbergsalat'
 ```
 
-13. Wie viele 'Wassermann's sind in der Datenbank eingetragen
+13. Wie viele \'Wassermann\'s sind in der Datenbank eingetragen
 ```SQL
 SELECT
     COUNT(*)
     FROM `kunden`
     WHERE `nachname` = 'Wassermann'
 ```
-14. Wie viele `Nachname`n sind in der Datenbank eingetragen
+14. Wie viele \`Nachname\`n sind in der Datenbank eingetragen
 ```SQL
 SELECT COUNT(DISTINCT `nachname`) AS 'Anzahl'
 	FROM `kunden`
@@ -178,14 +178,14 @@ SELECT
     ORDER BY COUNT(`idKunde`) DESC
 ```
 
-2. Wie oft kommt jeder ``Nachname`` vor
+2. Wie oft kommt jeder \`Nachname\` vor
 ```SQL
 SELECT `nachname`, COUNT(*)
 	FROM `kunden`
 	GROUP BY `nachname`
 ```
 
-3. Wie viele \`Hauptgericht\`e werden von jedem ``Lieferanten`` geliefert
+3. Wie viele Hauptgerichte werden von jedem Lieferanten geliefert
 ```SQL
 SELECT
     `firma` AS 'Firma',
@@ -196,7 +196,7 @@ SELECT
     GROUP BY `firma`
 ```
 
-4. Wie viele Nahrungsmittel werden von jedem ``Lieferanten`` geliefert
+4. Wie viele Nahrungsmittel werden von jedem Lieferanten geliefert
 ```SQL
 SELECT
 	`firma` AS 'Firma',
