@@ -16,7 +16,8 @@ SELECT
     GROUP BY `nachname`
 
 /*
-Bei der Frage wie oft jeder Nachname in der Tabelle enthalten ist kann nach der Gruppierung die Anzahl der enthaltenen Einträge gezählt werden
+Bei der Frage wie oft jeder Nachname in der Tabelle enthalten ist kann
+nach der Gruppierung die Anzahl der enthaltenen Einträge gezählt werden
 */
 
 SELECT
