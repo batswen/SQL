@@ -1,5 +1,4 @@
 # Einfache Abfragen
-### Lösungen
 Manchmal sind mehrere Lösungen möglich
 1. Suchen Sie alle Nahrungsmittel, die mehr als 5 € kosten.
 ```SQL
@@ -139,13 +138,14 @@ SELECT `bezeichnung`, `firma` FROM `lieferanten`
     NATURAL JOIN `beilagen`
 ```
 
-16. Zeigen Sie alle Kunden und ihre bestellten Hauptgerichte
+16. Zeigen Sie alle Kunden und ihre bestellten Hauptgerichte. Das Ergebnis soll wie folgt angezeigt werden:
+Kunde (enthält \`vorname\` und \`nachnam\`, 'Datum', 'Menge', 'Bezeichnung', 'Preis')
 ```SQL
 SELECT
 	CONCAT(`vorname`, ' ', `nachname`) AS 'Kunde',
     `datum` AS 'Datum',
     `menge` AS 'Anzahl',
-    `bezeichnung` AS 'Was',
+    `bezeichnung` AS 'Bezeichnung',
     `menge` * `preis` AS 'Preis'
     FROM `kunden`
     NATURAL JOIN `bestellungen`
@@ -156,7 +156,7 @@ SELECT
 17. Ändern Sie die Stadt von 'Susi Sorglos' in 'Wiesbaden'
 ```SQL
 UPDATE `kunden`
-    SET `wohnort`='Wiesbaden'
+    SET `wohnort` = 'Wiesbaden'
     WHERE `vorname` = 'Susi' AND `nachname` = 'Sorglos'
 ```
 
