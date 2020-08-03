@@ -32,8 +32,7 @@ SELECT `bezeichnung`
     WHERE `preis` = (SELECT MAX(`preis`) FROM `hauptgerichte`)
 ```
 ### Achtung
-Unterabfragen in der FROM-Klausel benötigen einen Alias auch wenn er in der
-Abfrage nicht benutzt wird, z. B.:
+Unterabfragen in der FROM-Klausel benötigen einen Alias auch wenn er in der Abfrage nicht benutzt wird, z. B.:
 ```SQL
 SELECT *
     FROM (SELECT * FROM `hauptgerichte`) AS a /* !!! */
