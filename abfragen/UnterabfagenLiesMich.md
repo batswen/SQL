@@ -1,13 +1,11 @@
 # Unterabfragen
 
-Unterabfragen (subqueries) werden nötig, wenn nach unbekannten, aber in der Datenbank
-vorhandenen Informationen gefiltert werden soll.
+Unterabfragen (subqueries) werden nötig, wenn nach unbekannten, aber in der Datenbank vorhandenen Informationen gefiltert werden soll.
 
 ### Beispiel
 Auflistung aller Nahrungsmittel mit dem höchsten Preis
 
-Das ist nicht mit Hilfe von ORDER BY möglich, da man nicht wissen kann, wie viele
-Einträge vorhanden sind.
+Das ist nicht mit Hilfe von ORDER BY möglich, da man nicht wissen kann, wie viele Einträge vorhanden sind.
 ```SQL
 SELECT `bezeichnung`
     FROM `hauptgerichte`
