@@ -23,3 +23,15 @@ SELECT
             GROUP by `idKunde`
             HAVING COUNT(`idReservierung`) > 0)
 ```
+
+3. Welche Kunden haben genau zweimal etwas Bestellt
+```SQL
+SELECT
+    *
+    FROM `kunden`
+    WHERE `idKunde` = ANY
+        (SELECT `idKunde`
+            FROM `bestellungen`
+            GROUP by `idKunde`
+            HAVING COUNT(`idBestellung`) = 2)
+```

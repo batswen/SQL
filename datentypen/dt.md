@@ -31,7 +31,6 @@ Zeichen (Character) mit varabler Länge
 
 ### BLOB (Binary Large OBject)
 Beliebige Daten mit max 65536 (64 kB) länge
-
 ### MEDIUMBLOB
 max 16 MB
 ### LONGBLOB
@@ -55,3 +54,14 @@ Enumeration
 ### TIMESTAMP (JJJJ-MM-TT HH:MM:SS)
 
 ### NULL
+
+# Datentypen in SQLite
+### NULL
+### INTEGER
+1, 2, 3, 4, 6, 8 Byte, abhängig von der Größe der Zahl
+### REAL
+Doppelt genaue Fließkommazahl (8 Byte)
+### TEXT
+UTF-8, UTF-16BE oder UTF-16LE kodierter Text
+### BLOB
+Binärdaten
