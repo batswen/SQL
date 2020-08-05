@@ -11,8 +11,8 @@ SELECT * FROM `hauptgerichte` CROSS JOIN `beilagen`
 bzw
 SELECT h.`bezeichnung` AS 'Hauptgericht',
     b.`bezeichnung` AS 'Beilage',
-    h.`preis` * b.`preis` AS 'Preis'
-    FROM `hauptgerichte` h CROSS JOIN `beilagen` b
+    h.`preis` + b.`preis` AS 'Preis'
+    FROM `hauptgerichte` AS h CROSS JOIN `beilagen` AS b
 ```
 * Verschiedene miteinander kombinierbare Versicherungen (z. B. Haftpflicht und Unfall)
 
@@ -23,7 +23,7 @@ Das Schlüsselwort "INNER" kann dabei entfallen.
 ### Beispiel
 * Anzeige aller Kundenreservierungen
 ```SQL
-SELECT * FROM `kunden` k INNER JOIN `reservierungen` r
+SELECT * FROM `kunden` AS k INNER JOIN `reservierungen` AS r
     ON k.`idKunde` = r.`idKunde`
 bzw
 SELECT * FROM `kunden` INNER JOIN `reservierungen`
@@ -31,7 +31,7 @@ SELECT * FROM `kunden` INNER JOIN `reservierungen`
 bzw
 SELECT k.`name` AS 'Kunde',
     r.`datum` AS 'Zeitpunkt'
-    FROM `kunden` k INNER JOIN `reservierungen` r
+    FROM `kunden` AS k INNER JOIN `reservierungen` AS r
     ON k.`idKunde` = r.`idKunde`
 ```
 
@@ -45,7 +45,7 @@ bzw
 SELECT
     k.`name` AS 'Kunde',
     r.`datum` AS 'Zeitpunkt'
-    FROM `kunden` k NATURAL JOIN `reservierungen` r
+    FROM `kunden` AS k NATURAL JOIN `reservierungen` AS r
 ```
 
 ## Left outer join
@@ -53,8 +53,8 @@ Alle Datensätze beider Tabellen werden miteinander verknüpft. Es werden alle E
 ### Beispiel
 * Anzeige aller Kunden und evtl. Kundenreservierungen
 ```SQL
-SELECT * FROM `kunden` k
-    LEFT OUTER JOIN `reservierungen` r
+SELECT * FROM `kunden` AS k
+    LEFT OUTER JOIN `reservierungen` AS r
     ON k.`idKunde` = r.`idKunde`
 bzw
 SELECT * FROM `kunden`
@@ -64,8 +64,8 @@ bzw
 SELECT
     k.`name` AS 'Kunde',
     r.`datum` AS 'Zeitpunkt'
-    FROM `kunden` k
-    LEFT OUTER JOIN `reservierungen` r
+    FROM `kunden` AS k
+    LEFT OUTER JOIN `reservierungen` AS r
     USING(`idKunde`)
 ```
 
