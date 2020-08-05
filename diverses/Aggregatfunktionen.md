@@ -5,6 +5,18 @@ Zählt die Datensätze
 ```SQL
 /* Anzahl der Kunden */
 SELECT COUNT(*) FROM `kunden`
+
+/* Zählt die Kunden aus 'Wiesbaden' */
+SELECT
+    COUNT(`idKunde`)
+    FROM `kunden`
+    WHERE `wohnort` = 'Wiesbaden'
+/* Zählt alle Einwohner der jeweiligen Städte */
+SELECT
+    `wohnort`,
+    COUNT(*)
+    FROM `kunden`
+    GROUP BY `wohnort`
 ```
 ### SUM()
 Errechnet die Summe
