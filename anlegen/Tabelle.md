@@ -1,10 +1,10 @@
 # Anlegen einer Tabelle
+Der Befehl "CREATE TABLE" erzeugt eine neze Tabelle. Der optionale Zusatz "IF NOT EXISTS" verhindert eine Fehlermeldung falls bereits eine Tabelle mit gleichem Namen vorhanden ist. In den Klammern werden die Attribute, deren Datentype sowie weitere Optionen (NOT NULL, AUTO_INCREMENT usw.) angegeben. Nach der schließenden Klammer können die Datenbankengine sowie der Zeichensatz genannt werden.
 ```SQL
-CREATE TABLE [IF NOT EXISTS] name (
+CREATE TABLE IF NOT EXISTS name (
     `attributbezeichnung` datentyp [weitere optionen]
 )
 ```
-
 
 ### Beispiel (Erzeugen, ändern und befüllen)
 ```SQL
@@ -30,13 +30,14 @@ INSERT INTO `kunden` (`idKunde`, `vorname`, `nachname`, `wohnort`) VALUES
 (12, 'Tina', 'Wassermann', 'Wiesbaden'),
 (13, 'Alexander', 'Müller', 'Idstein'),
 (14, 'Elton', 'Krähe', 'Idstein'),
-(15, 'Christina', 'Müller', 'Wiesbaden');ULT CHARSET=utf8mb4;
+(15, 'Christina', 'Müller', 'Wiesbaden');
 
 ALTER TABLE `kunden`
   ADD PRIMARY KEY (`idKunde`);
 ```
 
-Die Tabelle kann auch aus einer Ergebnistabelle erzeugt werden
+# Anlegen einer Tabelle aus einer Ergebnistabelle
+Alternativ ist es möglich eine Ergebnistalle als Quelle für die neue Tabelle zu verwenden.
 ### Beispiel
 ```SQL
 CREATE TABLE `wiesbadener` AS
