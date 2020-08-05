@@ -4,7 +4,7 @@ _ =  Ein Zeichen
 ```
 
 ```
-% = Beliebig viele, auch kein, Zeichen
+% = Beliebig viele (0..*) Zeichen
 ```
 MariaDB unterstützt seit Version 10 PCRE
 ### LIKE
