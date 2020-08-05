@@ -42,7 +42,8 @@ Alle Datensätze beider Tabellen werden miteinander verknüpft. Es werden nur di
 ```SQL
 SELECT * FROM `kunden` NATURAL JOIN `reservierungen`
 bzw
-SELECT k.`name` AS 'Kunde',
+SELECT
+    k.`name` AS 'Kunde',
     r.`datum` AS 'Zeitpunkt'
     FROM `kunden` k NATURAL JOIN `reservierungen` r
 ```
@@ -60,7 +61,8 @@ SELECT * FROM `kunden`
     LEFT OUTER JOIN `reservierungen`
     USING(`idKunde`)
 bzw
-SELECT k.`name` AS 'Kunde',
+SELECT
+    k.`name` AS 'Kunde',
     r.`datum` AS 'Zeitpunkt'
     FROM `kunden` k
     LEFT OUTER JOIN `reservierungen` r
@@ -69,6 +71,13 @@ SELECT k.`name` AS 'Kunde',
 
 ## Right outer join
 Alle Datensätze beider Tabellen werden miteinander verknüpft. Es werden alle Einträge der rechten Tabelle in die Ergebnistalle übernommen, evtl. fehlende Einträge der linken Tabelle werden durch NULL aufgefüllt. Das Schlüsselwort "OUTER" kann dabei entfallen.
+### Left und Right join
+Beide unterscheiden sich nur in der Reihenfolge der Tabellen
+```SQL
+SELECT * FROM a LEFT JOIN b
+ist identisch mit
+SELECT * FROM b RIGHT JOIN a
+```
 
 ## Full join
 Alle Datensätze beider Tabellen werden miteinander verknüpft. Es werden alle Einträge beider Tabellen in die Ergebnistalle übernommen, evtl. fehlende Einträge werden durch NULL aufgefüllt. Achtung: MySQL/MariaDB unterstützt keinen FULL OUTER JOIN.
