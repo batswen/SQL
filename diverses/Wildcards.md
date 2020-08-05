@@ -31,7 +31,7 @@ SELECT
 SELECT
     *
     FROM `kunden`
-    WHERE `vorname` REGEXP '^H[ao].*'
+    WHERE `vorname` REGEXP '^H[ao].*$'
 ```
 ## IN
 Findet alle Treffer aus der angegebenen Liste
