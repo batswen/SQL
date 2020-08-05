@@ -55,7 +55,7 @@ INSERT INTO `beilagelieferant` (`idLieferant`, `idBeilage`) VALUES
 --
 
 CREATE TABLE `beilagen` (
-  `idBeilage` int(11) NOT NULL,
+  `idBeilage` int(11) NOT NULL AUTO_INCREMENT,
   `bezeichnung` varchar(50) NOT NULL,
   `preis` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -100,7 +100,7 @@ INSERT INTO `bestellungbeilage` (`idBestellung`, `idBeilage`, `menge`) VALUES
 --
 
 CREATE TABLE `bestellungen` (
-  `idBestellung` int(11) NOT NULL,
+  `idBestellung` int(11) NOT NULL AUTO_INCREMENT,
   `idKunde` int(11) NOT NULL,
   `datum` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -126,7 +126,7 @@ INSERT INTO `bestellungen` (`idBestellung`, `idKunde`, `datum`) VALUES
 --
 
 CREATE TABLE `bestellunghauptgericht` (
-  `idBestellung` int(11) NOT NULL,
+  `idBestellung` int(11) NOT NULL AUTO_INCREMENT,
   `idHauptgericht` int(11) NOT NULL,
   `menge` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -152,7 +152,7 @@ INSERT INTO `bestellunghauptgericht` (`idBestellung`, `idHauptgericht`, `menge`)
 --
 
 CREATE TABLE `hauptgerichte` (
-  `idHauptgericht` int(11) NOT NULL,
+  `idHauptgericht` int(11) NOT NULL AUTO_INCREMENT,
   `bezeichnung` varchar(50) NOT NULL,
   `preis` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -203,7 +203,7 @@ INSERT INTO `hauptgerichtlieferant` (`idLieferant`, `idHauptgericht`) VALUES
 --
 
 CREATE TABLE `kunden` (
-  `idKunde` int(11) NOT NULL,
+  `idKunde` int(11) NOT NULL AUTO_INCREMENT,
   `vorname` varchar(50) NOT NULL,
   `nachname` varchar(50) NOT NULL,
   `wohnort` varchar(50) DEFAULT NULL
@@ -237,7 +237,7 @@ INSERT INTO `kunden` (`idKunde`, `vorname`, `nachname`, `wohnort`) VALUES
 --
 
 CREATE TABLE `lieferanten` (
-  `idLieferant` int(11) NOT NULL,
+  `idLieferant` int(11) NOT NULL AUTO_INCREMENT,
   `firma` varchar(50) NOT NULL,
   `ort` varchar(50) NOT NULL,
   `telefon` varchar(50) NOT NULL
@@ -260,7 +260,7 @@ INSERT INTO `lieferanten` (`idLieferant`, `firma`, `ort`, `telefon`) VALUES
 --
 
 CREATE TABLE `reservierungen` (
-  `idReservierung` int(11) NOT NULL,
+  `idReservierung` int(11) NOT NULL AUTO_INCREMENT,
   `idKunde` int(11) NOT NULL,
   `datum` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
