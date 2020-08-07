@@ -23,7 +23,7 @@ SELECT FORMAT(789123.456, 2, 'de_DE')
 ```
 
 ## INSTR
-Sucht in einer Zeichenkette nach einer Zweiten und liefert die Position oder 0 zurück
+Sucht in einer Zeichenkette nach einer Zweiten und liefert die Position oder 0 zurück.
 
 ### Beispiel
 ```SQL
@@ -40,7 +40,7 @@ SELECT UPPER('Hallo Welt!') /* HALLO WELT! */
 ```
 
 ## LEFT und RIGHT
-LEFT liefert die angegebene Anzahl an Zeichen der Zeichenkette von links an zurück, RIGHT von rechts an
+LEFT liefert die angegebene Anzahl an Zeichen der Zeichenkette von links an zurück, RIGHT von rechts an.
 
 ### Beispiel
 ```SQL
@@ -77,7 +77,7 @@ SELECT RTRIM('   Hallo   ') /*    Hallo */
 ```
 
 ## LENGTH
-Liefert die Länge einer Zeichenkette
+Liefert die Länge einer Zeichenkette.
 
 ### Beispiel
 ```SQL
