@@ -35,8 +35,8 @@ LCASE bzw LOWER liefert die angegebene Zeichenkette in Kleinbuchstaben zur√ºck, 
 
 ### Beispiel
 ```SQL
-SELECT LOWER('Hallo Welt!') /* hallo welt! */
-SELECT UPPER('Hallo Welt!') /* HALLO WELT! */
+SELECT LOWER('Hallo Welt!') /* 'hallo welt!' */
+SELECT UPPER('Hallo Welt!') /* 'HALLO WELT!' */
 ```
 
 ## LEFT und RIGHT
@@ -44,8 +44,8 @@ LEFT liefert die angegebene Anzahl an Zeichen der Zeichenkette von links an zur√
 
 ### Beispiel
 ```SQL
-SELECT LEFT('Hallo Welt!', 3) /* Hal */
-SELECT RIGHT('Hallo Welt!', 3) /* lt! */
+SELECT LEFT('Hallo Welt!', 3) /* 'Hal' */
+SELECT RIGHT('Hallo Welt!', 3) /* 'lt!' */
 ```
 
 ## MID / SUBSTRING
@@ -53,8 +53,8 @@ MID(zk, pos, len) liefert die angegebene Anzahl Zeichen (len) ab der Position (p
 
 ### Beispiel
 ```SQL
-SELECT MID('Hallo Welt!', 3, 5) /* llo W */
-SELECT MID('Hallo Welt!', 3) /* llo Welt! */
+SELECT MID('Hallo Welt!', 3, 5) /* 'llo W' */
+SELECT MID('Hallo Welt!', 3) /* 'llo Welt!' */
 ```
 
 ## LPAD und RPAD
@@ -62,8 +62,8 @@ LPAD (left padding) und RPAD (right padding) erweitern eine Zeichenkette auf die
 
 ### Beispiel
 ```SQL
-SELECT LPAD('Hallo Welt!', 15) /*    Hallo Welt! */
-SELECT RPAD('Hallo Welt!', 15, '.') /* Hallo Welt!.... */
+SELECT LPAD('Hallo Welt!', 15) /* '   Hallo Welt!' */
+SELECT RPAD('Hallo Welt!', 15, '.') /* 'Hallo Welt!....' */
 ```
 
 ## TRIM, LTRIM und RTRIM
@@ -71,9 +71,9 @@ Diese Funktionen entfernen Leerzeichen links, rechts oder an beiden Seiten einer
 
 ### Beispiel
 ```SQL
-SELECT TRIM('   Hallo   ')  /* Hallo */
-SELECT LTRIM('   Hallo   ') /* Hallo    */
-SELECT RTRIM('   Hallo   ') /*    Hallo */
+SELECT TRIM('   Hallo   ')  /* 'Hallo' */
+SELECT LTRIM('   Hallo   ') /* 'Hallo   ' */
+SELECT RTRIM('   Hallo   ') /* '   Hallo' */
 ```
 
 ## LENGTH
