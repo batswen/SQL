@@ -30,35 +30,21 @@ Sucht in einer Zeichenkette nach einer Zweiten und liefert die Position oder 0 z
 SELECT INSTR('Hallo Welt!', 'Welt') /* 7 */
 ```
 
-## LCASE / LOWER
-LCASE bzw LOWER liefert die angegebene Zeichenkette in Kleinbuchstaben zurück
+## LCASE / LOWER und UCASE / UPPER
+LCASE bzw LOWER liefert die angegebene Zeichenkette in Kleinbuchstaben zurück, UCASE bzw UPPER liefert die angegebene Zeichenkette in Großbuchstaben zurück.
 
 ### Beispiel
 ```SQL
 SELECT LOWER('Hallo Welt!') /* hallo welt! */
-```
-
-## UCASE / UPPER
-UCASE bzw UPPER liefert die angegebene Zeichenkette in Großbuchstaben zurück
-
-### Beispiel
-```SQL
 SELECT UPPER('Hallo Welt!') /* HALLO WELT! */
 ```
 
-## LEFT
-LEFT liefert die angegebene Anzahl an Zeichen der Zeichenkette von links an zurück
+## LEFT und RIGHT
+LEFT liefert die angegebene Anzahl an Zeichen der Zeichenkette von links an zurück, RIGHT von rechts an
 
 ### Beispiel
 ```SQL
 SELECT LEFT('Hallo Welt!', 3) /* Hal */
-```
-
-## RIGHT
-RIGHT liefert die angegebene Anzahl an Zeichen der Zeichenkette von rechts an zurück
-
-### Beispiel
-```SQL
 SELECT RIGHT('Hallo Welt!', 3) /* lt! */
 ```
 
