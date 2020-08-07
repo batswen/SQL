@@ -213,3 +213,27 @@ SELECT * FROM b RIGHT JOIN a
 
 ## Full outer join
 Alle Datensätze beider Tabellen werden miteinander verknüpft. Es werden alle Einträge beider Tabellen in die Ergebnistalle übernommen, evtl. fehlende Einträge werden durch NULL aufgefüllt. Achtung: MySQL/MariaDB unterstützt keinen FULL OUTER JOIN.
+
+```SQL
++-------------+ +-------------+
+| Zahlen      | | Numbers     |
++----+--------+ +----+--------+
+| id | name   | | id | name   |
++----+--------+ +----+--------+
+|  1 | Eins   | |  3 | one    |
+|  3 | Zwei   | |  5 | two    |
+|  7 | Drei   | |  7 | three  |
++----+--------+ +----+--------+
+
+SELECT * FROM `Zahlen` FULL OUTER JOIN `Numbers`
+    USING (`id`)
+
++----+--------+----+--------+
+| id | name   | id | name   |
++----+--------+----+--------+
+|  1 | Eins   |NULL| NULL   |
+|  3 | Zwei   |  3 | one    |
+|NULL| NULL   |  5 | two    |
+|  7 | Drei   |  7 | three  |
++----+--------+----+--------+
+```
