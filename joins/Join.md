@@ -1,6 +1,17 @@
 # Joins
 
-Alle Beispiele verwenden die im selben Verzeichnis vorhandene Beispieldatenbank "futter.sql"
+Alle Beispiele verwenden die im selben Verzeichnis vorhandene Beispieldatenbank "futter.sql" bzw die folgenden Tabellen:
+```
++-------------+ +-------------+
+| Zahlen      | | Numbers     |
++----+--------+ +----+--------+
+| id | name   | | id | name   |
++----+--------+ +----+--------+
+|  1 | Eins   | |  3 | one    |
+|  3 | Zwei   | |  5 | two    |
+|  7 | Drei   | |  7 | three  |
++----+--------+ +----+--------+
+```
 
 ## Cross join
 Alle Datensätze beider Tabellen werden miteinander verknüpft. Die Länge der Ergebnistabelle ist das Produkt aus den längen der beiden Tabellen. Das Schlüsselwort "CROSS" kann dabei entfallen.
@@ -15,6 +26,34 @@ SELECT h.`bezeichnung` AS 'Hauptgericht',
     FROM `hauptgerichte` AS h CROSS JOIN `beilagen` AS b
 ```
 * Verschiedene miteinander kombinierbare Versicherungen (z. B. Haftpflicht und Unfall)
+
+```SQL
++-------------+ +-------------+
+| Zahlen      | | Numbers     |
++----+--------+ +----+--------+
+| id | name   | | id | name   |
++----+--------+ +----+--------+
+|  1 | Eins   | |  3 | one    |
+|  3 | Zwei   | |  5 | two    |
+|  7 | Drei   | |  7 | three  |
++----+--------+ +----+--------+
+
+SELECT * FROM `Zahlen` CROSS JOIN `Numbers`
+
++----+--------+----+--------+
+| id | name   | id | name   |
++----+--------+----+--------+
+|  1 | Eins   |  3 | one    |
+|  1 | Eins   |  5 | two    |
+|  1 | Eins   |  7 | three  |
+|  3 | Zwei   |  3 | one    |
+|  3 | Zwei   |  5 | two    |
+|  3 | Zwei   |  7 | three  |
+|  7 | Drei   |  3 | one    |
+|  7 | Drei   |  5 | two    |
+|  7 | Drei   |  7 | three  |
++----+--------+----+--------+
+```
 
 ## Inner join
 Alle Datensätze beider Tabellen werden miteinander verknüpft. Die Länge der Ergebnistabelle ist das Produkt aus den längen der beiden Tabellen. Hier ist es möglich durch Vergleich zweier Schlüssel die Auswahl zu beschränken (ON).
@@ -35,6 +74,31 @@ SELECT k.`name` AS 'Kunde',
     ON k.`idKunde` = r.`idKunde`
 ```
 
+```SQL
++-------------+ +-------------+
+| Zahlen      | | Numbers     |
++----+--------+ +----+--------+
+| id | name   | | id | name   |
++----+--------+ +----+--------+
+|  1 | Eins   | |  3 | one    |
+|  3 | Zwei   | |  5 | two    |
+|  7 | Drei   | |  7 | three  |
++----+--------+ +----+--------+
+
+SELECT * FROM `Zahlen` INNER JOIN `Numbers`
+    USING(`id`)
+bzw
+SELECT * FROM `Zahlen`AS z INNER JOIN `Numbers` AS n
+    ON z.`id` = n.`id`
+
++----+--------+----+--------+
+| id | name   | id | name   |
++----+--------+----+--------+
+|  3 | Zwei   |  3 | one    |
+|  7 | Drei   |  7 | three  |
++----+--------+----+--------+
+```
+
 ## Natural join
 Alle Datensätze beider Tabellen werden miteinander verknüpft. Es werden nur die Einträge in die Ergebnistalle übernommen, die mindestens einen gemeinsamen Schlüssel haben. Hierbei handelt es sich um einen INNER JOIN, der automatisch nach passenden PS/FS-Kombinationen sucht.
 ### Beispiel
@@ -46,6 +110,27 @@ SELECT
     k.`name` AS 'Kunde',
     r.`datum` AS 'Zeitpunkt'
     FROM `kunden` AS k NATURAL JOIN `reservierungen` AS r
+```
+
+```SQL
++-------------+ +-------------+
+| Zahlen      | | Numbers     |
++----+--------+ +----+--------+
+| id | name   | | id | name   |
++----+--------+ +----+--------+
+|  1 | Eins   | |  3 | one    |
+|  3 | Zwei   | |  5 | two    |
+|  7 | Drei   | |  7 | three  |
++----+--------+ +----+--------+
+
+SELECT * FROM `Zahlen` NATURAL JOIN `Numbers`
+
++----+--------+----+--------+
+| id | name   | id | name   |
++----+--------+----+--------+
+|  3 | Zwei   |  3 | one    |
+|  7 | Drei   |  7 | three  |
++----+--------+----+--------+
 ```
 
 ## Left outer join
@@ -69,8 +154,55 @@ SELECT
     USING(`idKunde`)
 ```
 
+```SQL
++-------------+ +-------------+
+| Zahlen      | | Numbers     |
++----+--------+ +----+--------+
+| id | name   | | id | name   |
++----+--------+ +----+--------+
+|  1 | Eins   | |  3 | one    |
+|  3 | Zwei   | |  5 | two    |
+|  7 | Drei   | |  7 | three  |
++----+--------+ +----+--------+
+
+SELECT * FROM `Zahlen` LEFT OUTER JOIN `Numbers`
+    USING (`id`)
+
++----+--------+----+--------+
+| id | name   | id | name   |
++----+--------+----+--------+
+|  1 | Eins   |NULL| NULL   |
+|  3 | Zwei   |  3 | one    |
+|  7 | Drei   |  7 | three  |
++----+--------+----+--------+
+```
+
 ## Right outer join
 Alle Datensätze beider Tabellen werden miteinander verknüpft. Es werden alle Einträge der rechten Tabelle in die Ergebnistalle übernommen, evtl. fehlende Einträge der linken Tabelle werden durch NULL aufgefüllt. Das Schlüsselwort "OUTER" kann dabei entfallen.
+
+```SQL
++-------------+ +-------------+
+| Zahlen      | | Numbers     |
++----+--------+ +----+--------+
+| id | name   | | id | name   |
++----+--------+ +----+--------+
+|  1 | Eins   | |  3 | one    |
+|  3 | Zwei   | |  5 | two    |
+|  7 | Drei   | |  7 | three  |
++----+--------+ +----+--------+
+
+SELECT * FROM `Zahlen` RIGHT OUTER JOIN `Numbers`
+    USING (`id`)
+
++----+--------+----+--------+
+| id | name   | id | name   |
++----+--------+----+--------+
+|  3 | Zwei   |  3 | one    |
+|NULL| NULL   |  5 | two    |
+|  7 | Drei   |  7 | three  |
++----+--------+----+--------+
+```
+
 ### Left und Right join
 Beide unterscheiden sich nur in der Reihenfolge der Tabellen
 ```SQL
@@ -79,5 +211,5 @@ ist identisch mit
 SELECT * FROM b RIGHT JOIN a
 ```
 
-## Full join
+## Full outer join
 Alle Datensätze beider Tabellen werden miteinander verknüpft. Es werden alle Einträge beider Tabellen in die Ergebnistalle übernommen, evtl. fehlende Einträge werden durch NULL aufgefüllt. Achtung: MySQL/MariaDB unterstützt keinen FULL OUTER JOIN.
