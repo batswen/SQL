@@ -9,7 +9,7 @@ SELECT CONCAT(`vorname`, ' ', `nachname`) AS 'Kunde' FROM `kunden`
 ```
 
 ## FORMAT
-Format dient zur formatierten Ausgabe von Zahlen
+Format dient zur formatierten Ausgabe von Zahlen, der zweite Parameter gibt die Anzahl an Nachkommastellen an, ein optionaler dritter Parameter bestimmt die Sprache bzw das Landesübliche Zahlenformat.
 
 ### Beispiel
 ```SQL
