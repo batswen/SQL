@@ -17,7 +17,7 @@ Format dient zur formatierten Ausgabe von Zahlen, der zweite Parameter gibt die 
 SELECT FORMAT(123.456, 2)
 /* = 123.46 */
 
-/* Gibt die Zahl wie im Deutschen üblich aus */
+/* Gibt die Zahl wie mit Punkt als Tausendertrenner und dem Komma als Dezimaltrenner aus */
 SELECT FORMAT(789123.456, 2, 'de_DE')
 /* = 789.123,46 */
 ```
