@@ -32,7 +32,7 @@ SELECT *
 SELECT
     h.`bezeichnung` AS 'Hauptgericht',
     b.`bezeichnung` AS 'Beilage',
-    h.`preis` * b.`preis` AS 'Preis'
+    h.`preis` + b.`preis` AS 'Preis'
     FROM `hauptgerichte` h
     CROSS JOIN `beilagen` b
 ```
