@@ -37,3 +37,4 @@ SELECT *
 ```
 
 ### ANY und ALL
+Beide Operatoren werden nach WHERE oder HAVING zusammen mit einem Vergleichsoperator eingesetzt. ANY liefert TRUE, wenn einer der Werte aus der Unterabfrage zutrifft, bei ALL müssen alle Vergleiche mit den Werten aus der Unterabfrage zutreffen.

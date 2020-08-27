@@ -24,7 +24,7 @@ SELECT
             HAVING COUNT(`idReservierung`) > 0)
 ```
 
-3. Welche Kunden haben genau zweimal etwas bestellt haben
+3. Welche Kunden haben genau zweimal etwas bestellt
 ```SQL
 SELECT
     *
