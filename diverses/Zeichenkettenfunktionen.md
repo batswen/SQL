@@ -14,12 +14,10 @@ Format dient zur formatierten Ausgabe von Zahlen, der zweite Parameter gibt die 
 ### Beispiel
 ```SQL
 /* Rundet auf zwei Nachkommastellen */
-SELECT FORMAT(123.456, 2)
-/* = 123.46 */
+SELECT FORMAT(123.456, 2)              /* = 123.46 */
 
 /* Gibt die Zahl wie mit Punkt als Tausendertrenner und dem Komma als Dezimaltrenner aus */
-SELECT FORMAT(789123.456, 2, 'de_DE')
-/* = 789.123,46 */
+SELECT FORMAT(789123.456, 2, 'de_DE') /* = 789.123,46 */
 ```
 
 ## INSTR
@@ -44,7 +42,7 @@ LEFT liefert die angegebene Anzahl an Zeichen der Zeichenkette von links an zur√
 
 ### Beispiel
 ```SQL
-SELECT LEFT('Hallo Welt!', 3) /* 'Hal' */
+SELECT LEFT('Hallo Welt!', 3)  /* 'Hal' */
 SELECT RIGHT('Hallo Welt!', 3) /* 'lt!' */
 ```
 
@@ -54,7 +52,7 @@ MID(zk, pos, len) liefert die angegebene Anzahl Zeichen (len) ab der Position (p
 ### Beispiel
 ```SQL
 SELECT MID('Hallo Welt!', 3, 5) /* 'llo W' */
-SELECT MID('Hallo Welt!', 3) /* 'llo Welt!' */
+SELECT MID('Hallo Welt!', 3)    /* 'llo Welt!' */
 ```
 
 ## LPAD und RPAD
@@ -62,7 +60,7 @@ LPAD (left padding) und RPAD (right padding) erweitern eine Zeichenkette auf die
 
 ### Beispiel
 ```SQL
-SELECT LPAD('Hallo Welt!', 15) /* '   Hallo Welt!' */
+SELECT LPAD('Hallo Welt!', 15)      /* '    Hallo Welt!' */
 SELECT RPAD('Hallo Welt!', 15, '.') /* 'Hallo Welt!....' */
 ```
 

@@ -5,7 +5,7 @@ Unterabfragen (subqueries) werden nötig, wenn nach unbekannten, aber in der Dat
 ### Beispiel
 Auflistung aller Nahrungsmittel mit dem höchsten Preis
 
-Das ist nicht mit Hilfe von ORDER BY möglich, da man nicht wissen kann, wie viele Einträge vorhanden sind.
+Das ist nicht mit Hilfe von ORDER BY/LIMIT möglich, da man nicht wissen kann, wie viele Einträge vorhanden sind.
 ```SQL
 SELECT `bezeichnung`
     FROM `hauptgerichte`
@@ -35,3 +35,5 @@ Unterabfragen in der FROM-Klausel benötigen einen Alias auch wenn er in der Abf
 SELECT *
     FROM (SELECT * FROM `hauptgerichte`) AS a /* !!! */
 ```
+
+### ANY und ALL

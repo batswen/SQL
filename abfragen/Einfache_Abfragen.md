@@ -167,6 +167,18 @@ DELETE FROM `kunden`
 ```
 19. Warum schlögt diese Anweisung fehl
 
+20.
+Finden Sie alle Kunden, die noch nie Reserviert haben
+```SQL
+SELECT
+    `vorname` AS 'Vorname',
+    `nachname` AS 'Nachname',
+    `wohnort` AS 'Wohnort'
+    FROM `kunden`
+    LEFT JOIN `reservierungen` USING (`idKunde`)
+    WHERE `idReservierung` IS NULL
+```
+
 # Abfragen mit Gruppierungen
 1. Listen Sie die Städte der Kunden und die Anzahl der Kunden aus der jeweiligen Stadt, zeigen Sie die Stadt mit den meisten Kunden zuerst
 ```SQL
@@ -192,7 +204,6 @@ SELECT
     COUNT(*) AS 'Anzahl'
     FROM `lieferanten`
     NATURAL JOIN `hauptgerichtlieferant`
-    NATURAL JOIN `hauptgerichte`
     GROUP BY `firma`
 ```
 
@@ -207,13 +218,21 @@ SELECT
             *
             FROM `lieferanten`
             NATURAL JOIN `hauptgerichtlieferant`
-            NATURAL JOIN `hauptgerichte`
          UNION
          SELECT
             *
             FROM `lieferanten`
             NATURAL JOIN `beilagelieferant`
-            NATURAL JOIN `beilagen`
     ) AS a
 	GROUP BY `firma`
+```
+
+5. Listen Sie alle Städte auf, aus denen mindestens zwei Kunden stammen
+```SQL
+SELECT
+    `wohnort`,
+    COUNT(*)
+    FROM `kunden`
+    GROUP BY `wohnort`
+    HAVING COUNT(*) >= 2 /* bzw > 1 */
 ```
