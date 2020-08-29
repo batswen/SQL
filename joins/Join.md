@@ -56,7 +56,7 @@ SELECT * FROM `Zahlen` CROSS JOIN `Numbers`
 ```
 
 ## Inner join
-Alle Datensätze beider Tabellen werden miteinander verknüpft. Die Länge der Ergebnistabelle ist das Produkt aus den längen der beiden Tabellen. Hier ist es möglich durch Vergleich zweier Schlüssel die Auswahl zu beschränken (ON).
+Alle Datensätze beider Tabellen werden miteinander verknüpft. Hier ist es möglich durch Vergleich zweier Schlüssel die Auswahl zu beschränken (ON).
 Ist die Bezeichnung beider Schlüssel in beiden Tabellen identisch kann der Vergleich durch USING(key) durchgeführt werden. Fehlt eine Beschränkung (ON/USING) wird aus einem INNER JOIN automatisch ein CROSS JOIN.
 Das Schlüsselwort "INNER" kann dabei entfallen.
 ### Beispiel
