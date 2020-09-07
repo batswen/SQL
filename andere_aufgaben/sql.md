@@ -69,52 +69,74 @@ SELECT \`Vorname\`, \`Nachname\` FROM \`Schüler\`
 
 ---
 1.) Alle Schüler, sortiert nach Vorname und Nachname
-Vorname Nachname
-Mark	Aal
-Beate	Müller
-Stefan	Müller
+
+|Vorname|Nachname|
+|-|-|
+|Mark|Aal|
+|Beate|Müller|
+|Stefan|Müller|
+
 
 2.) Alle Klassenräume, größte zuerst
-Bezeichnung Sitzplätze
-Turnhalle	100
-A16			38
-B100		27
+
+|Bezeichnung|Sitzplätze|
+|-|-|
+|Turnhalle|100|
+|A16|38|
+|B100|27|
 
 3.) Welcher Klassenraum ist der Größte?
-Größter Klassenraum
-Turnhalle
+
+|Größter Klassenraum|
+|-|
+|Turnhalle|
+
 
 4.) Welcher Klassenraum ist der Kleinste?
-Kleinster Klassenraum
-C100
+
+|Kleinster Klassenraum|
+|-|
+|C100|
+
 
 5.) Wie viele Schüler gibt es in jeder Klasse? Absteigend nach Anzahl sortiert.
-Klasse	Anzahl
-8a		30
-9a		26
-8b		21
+
+|Klasse|Anzahl|
+|-|-|
+|8a|30|
+|9a|26|
+|8b|21|
+
 
 6.) Wie viele Schüler gibt es insgesamt?
-Anzahl
-361
+
+|Anzahl|
+|-|
+|361|
 
 7.) Wie viele Klassenräume gibt es in eder Etage?
-Etage	Klassenräume
-1		5
-2		3
-3		3
+
+|Etage|Klassenräume|
+|-|-|
+|1|5|
+|2|3|
+|3|3|
 
 8.) Wie viele Sitzplätze gibt es in jeder Etage?
-Etage	Sitzplätze
-1		180
-2		120
-3		80
+
+|Etage|Sitzplätze|
+|-|-|
+|1|180|
+|2|120|
+|3|80|
 
 9.) Welche Schüler sind Teil welcher Klasse? Die Klassen sollen dabei zusammen gelistet werden.
-Vorname	Nachname	Klasse
-Mark	Aal			8a
-Anja	Müller		8a
-Hans	Wurst		8a
+
+|Vorname|Nachname|Klasse|
+|-|-|-|
+|Mark|Aal|8a|
+|Anja|Müller|8a|
+|Hans|Wurst|8a|
 
 9.) Die Telefonnummer von Christian	Zimmermann (idSchüler: 117) soll gelöscht werden.
 Ein Kollege hat die folgende Anweisung geschrieben:
@@ -122,48 +144,66 @@ DELETE FROM `Schüler` WHERE `Vorname` = 'Christian' AND `Nachname` = 'Zimmerman
 Wie würden Sie die Anweisung formulieren?
 
 10.) Wie viele Schüler gibt es in Klasse 10a?
-Anzahl
-28
+
+|Anzahl|
+|-|
+|28|
 
 11.) In welchen Räumen wird Klasse 9c unterrichtet?
-Klassenraum
-C100
-A20
-Turnhalle
+
+|Klassenraum|
+|-|
+|C100|
+|A20|
+|Turnhalle|
 
 12.) Listen Sie alle Schüler und Lehrer auf.
-Vorname	Nachname
-...
+
+|Vorname|Nachname|
+|-|-|
+|...|...|
 
 13.) Fehlersuche: Welche Lehrer wurden keinem Unterrichtsfach zugeordnet?
-Vorname Nachname
-Frank	Meier
+
+|Vorname|Nachname|
+|-|-|
+|Frank|Meier|
 
 13.) Alle Lehrer und ihre Fächer, bei fehlerhaften Einträgen soll "---" ausgegeben werden
-Vorname Nachname	Fach
-Anita	Schiller	Mathematik
-Anita	Schiller	Deutsch
-Frank	Meier		---
+
+|Vorname|Nachname|Fach|
+|-|-|-|
+|Anita|Schiller|Mathematik|
+|Anita|Schiller|Deutsch|
+|Frank|Meier|---|
 
 14.) Listen Sie alle Klassen und die Anzahl Stunden Sportunterricht auf.
-Klasse	Sportstunden
-8a		4
-9b		4
-10a		6
+
+|Klasse|Sportstunden|
+|-|-|
+|8a|4|
+|9b|4|
+|10a|6|
 
 15.) Welche Klassen werden in Raum C100 unterrichtet?
-Raum C100
-9a
-9c
-5e
+
+|Raum C100|
+|-|
+|9a|
+|9c|
+|5e|
 
 16.) Welche Klassen können in welchen Räumen unterrichtet werden?
-Klasse	Raum
-8a		A16
-8a		Turnhalle
-8b		Turnhalle
+
+|Klasse|Raum|
+|-|-|
+|8a|A16|
+|8a|Turnhalle|
+|8b|Turnhalle|
 
 17.) Alle Räume und die Anzahl Deutsch- und Englischstunden, die darin unterrichtet werden.
-Raum	Deutsch	Englisch
-A17		5 h		0 h
-C100	2 h		11 h
+
+|Raum|Deutsch|Englisch|
+|-|-|-|
+|A17|5 h|0 h|
+|C100|2 h|11 h|
