@@ -1,25 +1,26 @@
-Schüler
+
+### Schüler
 
 |idSchüler|Vorname|Nachname|Strasse|PLZ|Telefon|idKlasse|
 |---------|-------|--------|-------|---|-------|--------|
 |1        |Mark   |Müller  |Hauptstrasse 10|65123|01234-56789|1|
 |2|Jana|Kaiser|Nebenweg 8|62621|07654-12345|2|
 
-Klasse
+### Klasse
 
 |idKlasse|Bezeichnung|
 |-|-|
 |1|10a|
 |2|8c|
 
-Lehrer
+### Lehrer
 
 |idLehrer|Vorname|Nachname|Strasse|PLZ|Telefon|
 |-|-|-|-|-|-|
 |1|Anita|Schiller|Postweg 17|67541|09876-54321|
 |2|Frank|Meier|Blumengasse 18|68753|05152-12454|
 
-Stundenplan
+### Stundenplan
 
 |id|idUnterrichtsfach|idKlasse|idklassenraum|Tag|Stunde|
 |-|-|-|-|-|-|
@@ -27,7 +28,7 @@ Stundenplan
 |2|1|1|1|Montag|2|
 |3|3|1|2|Montag|5|
 
-Unterrichtsfach
+### Unterrichtsfach
 
 |idUnterrichtsfach|Bezeichnung|
 |-|-|
@@ -35,23 +36,21 @@ Unterrichtsfach
 |2|Deutsch|
 |3|Sport|
 
-Klassenraum
+### Klassenraum
 
 |idklassenraum|Bezeichnung|Sitzplätze|Etage|
 |-|-|-|-|
 |1|C100|24|2|
 |2|Turnhalle|100|1|
 
-Ort
+### Ort
 
 |PLZ|Ortsbezeichnung|
 |-|-|
 |65123|Irgendwo|
 |62621|Anderswo|
 
----
-LehrerUnterrichtsfach
-
+### LehrerUnterrichtsfach
 
 |idLehrer|idUnterrichtsfach|
 |-|-|
@@ -60,10 +59,12 @@ LehrerUnterrichtsfach
 ---
 Beispiel:
 Listen Sie alle Schüler auf.
-Vorname		Nachname
-Christian	Zimmermann
-Mark		Aal
-Beate		Müller
+
+|Vorname|Nachname|
+|-|-|
+|Christian|Zimmermann|
+|Mark|Aal|
+|Beate|Müller|
 
 SELECT \`Vorname\`, \`Nachname\` FROM \`Schüler\`
 
