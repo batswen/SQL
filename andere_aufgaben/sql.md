@@ -1,48 +1,61 @@
-```
 Schüler
 
 |idSchüler|Vorname|Nachname|Strasse|PLZ|Telefon|idKlasse|
 |---------|-------|--------|-------|---|-------|--------|
 |1        |Mark   |Müller  |Hauptstrasse 10|65123|01234-56789|1|
-
-	2			Jana	 Kaiser		Nebenweg 8		62621	07654-12345	2
+|2|Jana|Kaiser|Nebenweg 8|62621|07654-12345|2|
 
 Klasse
-	idKlasse	Bezeichnung
-	1			10a
-	2			8c
+
+|idKlasse|Bezeichnung|
+|-|-|
+|1|10a|
+|2|8c|
 
 Lehrer
-	idLehrer	Vorname	Nachname	Strasse			PLZ		Telefon
-	1			Anita	Schiller	Postweg 17		67541	09876-54321
-	2			Frank	Meier		Blumengasse 18	68753	05152-12454
+
+|idLehrer|Vorname|Nachname|Strasse|PLZ|Telefon|
+|-|-|-|-|-|-|
+|1|Anita|Schiller|Postweg 17|67541|09876-54321|
+|2|Frank|Meier|Blumengasse 18|68753|05152-12454|
 
 Stundenplan
-	id		idUnterrichtsfach	idKlasse	idklassenraum	Tag		Stunde
-	1		1					1			1				Montag	1
-	2		1					1			1				Montag	2
-	3		3					1			2				Montag	5
+
+|id|idUnterrichtsfach|idKlasse|idklassenraum|Tag|Stunde|
+|-|-|-|-|-|-|
+|1|1|1|1|Montag|1|
+|2|1|1|1|Montag|2|
+|3|3|1|2|Montag|5|
 
 Unterrichtsfach
-	idUnterrichtsfach	Bezeichnung
-	1					Mathematik
-	2					Deutsch
-	3					Sport
+
+|idUnterrichtsfach|Bezeichnung|
+|-|-|
+|1|Mathematik|
+|2|Deutsch|
+|3|Sport|
 
 Klassenraum
-	idklassenraum	Bezeichnung	Sitzplätze	Etage
-	1				C100		24			2
-	2				Turnhalle	100			1
+
+|idklassenraum|Bezeichnung|Sitzplätze|Etage|
+|-|-|-|-|
+|1|C100|24|2|
+|2|Turnhalle|100|1|
 
 Ort
-	PLZ		Ortsbezeichnung
-	65123	Irgendwo
-	62621	Anderswo
+
+|PLZ|Ortsbezeichnung|
+|-|-|
+|65123|Irgendwo|
+|62621|Anderswo|
 
 ---
 LehrerUnterrichtsfach
-	idLehrer	idUnterrichtsfach
-	1			1 					(Anita Schiller, Mathematik)
+
+
+|idLehrer|idUnterrichtsfach|
+|-|-|
+|1|1|
 
 ---
 Beispiel:
@@ -52,7 +65,7 @@ Christian	Zimmermann
 Mark		Aal
 Beate		Müller
 
-SELECT `Vorname`, `Nachname` FROM `Schüler`
+SELECT \`Vorname\`, \`Nachname\` FROM \`Schüler\`
 
 ---
 1.) Alle Schüler, sortiert nach Vorname und Nachname
@@ -154,4 +167,3 @@ Klasse	Raum
 Raum	Deutsch	Englisch
 A17		5 h		0 h
 C100	2 h		11 h
-```
