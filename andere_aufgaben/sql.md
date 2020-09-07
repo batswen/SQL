@@ -1,7 +1,10 @@
 ```
 Schüler
+
 |idSchüler|Vorname|Nachname|Strasse|PLZ|Telefon|idKlasse|
-|1|Mark|Müller|Hauptstrasse 10|65123|01234-56789|1|
+|---------|-------|--------|-------|---|-------|--------|
+|1        |Mark   |Müller  |Hauptstrasse 10|65123|01234-56789|1|
+
 	2			Jana	 Kaiser		Nebenweg 8		62621	07654-12345	2
 
 Klasse
