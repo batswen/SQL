@@ -1,7 +1,7 @@
 # Einfache Abfragen
 Manchmal sind mehrere Lösungen möglich
 1. Suchen Sie alle Nahrungsmittel, die mehr als 5 € kosten.
-```SQL
+```MYSQL
 SELECT *
     FROM `hauptgerichte`
     WHERE `preis` > 5
