@@ -1,6 +1,7 @@
 # Einfache Abfragen
 Manchmal sind mehrere Lösungen möglich
 1. Suchen Sie alle Nahrungsmittel, die mehr als 5 € kosten.
+
 ```SQL
 SELECT *
     FROM `hauptgerichte`
@@ -17,6 +18,7 @@ SELECT *
 ```
 
 2. Suchen Sie alle Nahrungsmittel, die zwischen 5 € und 7 € (inklusive) kosten.
+
 ```SQL
 SELECT *
     FROM `hauptgerichte`
@@ -28,6 +30,7 @@ SELECT *
 ```
 
 3. Erstellen Sie eine Speisekarte mit den folgenden Spalten: Hauptgericht, Beilage, Preis
+
 ```SQL
 SELECT
     h.`bezeichnung` AS 'Hauptgericht',
@@ -38,6 +41,7 @@ SELECT
 ```
 
 4. Listen Sie alle Wiesbadener Kunden auf
+
 ```SQL
 SELECT
     *
@@ -45,7 +49,11 @@ SELECT
     WHERE `wohnort` = 'Wiesbaden'
 ```
 
-5. Wie viele Kunden leben in Niedernhausen, das Ergebnis soll wie folgt aussehen: "{ANZAHL} Kunden wohnen in Niedernhausen"
+5. Wie viele Kunden leben in Niedernhausen, das Ergebnis soll wie folgt aussehen:
+|Ergebnis|
+|-|
+|{ANZAHL} Kunden wohnen in Niedernhausen|
+
 ```SQL
 SELECT
     CONCAT(
@@ -57,6 +65,7 @@ SELECT
 ```
 
 6. Listen Sie alle Kunden auf, die bereits eine Reservierung gemacht haben
+
 ```SQL
 SELECT DISTINCT
     `nachname`, `vorname`
@@ -65,15 +74,17 @@ SELECT DISTINCT
 ```
 
 7. Listen Sie alle Kunden auf und fügen Sie eventuelle Reservierungen hinzu. Das Ergebnis soll nur den Namen und das Datum beinhalten
+
 ```SQL
 SELECT
-    CONCAT(`vorname`, `nachname` AS 'Kunde', `datum` AS 'Datum'
+    CONCAT(`vorname`, `nachname` AS 'Kunde', `datum` AS 'Datum')
     FROM `kunden`
     LEFT OUTER JOIN `reservierungen`
     USING(`idKunde`)
 ```
 
 8. Aus wie vielen Städten stammen die Kunden
+
 ```SQL
 SELECT
     COUNT(DISTINCT `wohnort`)
@@ -81,12 +92,14 @@ SELECT
 ```
 
 9. Nennen Sie die Städte (jeweils nur einmal)
+
 ```SQL
 SELECT DISTINCT `wohnort`
     FROM `kunden`
 ```
 
 10. Listen Sie alle Kunden auf, sortiert nach Nach- und Vorname
+
 ```SQL
 SELECT
     *
@@ -95,6 +108,7 @@ SELECT
 ```
 
 11. Finden Sie alle Kunden, die 'Müller' heißen und bereits mindestens einmal Reserviert haben
+
 ```SQL
 SELECT * FROM `kunden`
 	NATURAL JOIN `reservierungen`
@@ -102,6 +116,7 @@ SELECT * FROM `kunden`
 ```
 
 12. Beim welchem Lieferanten kann 'Eisbergsalat' bestellt werden
+
 ```SQL
 SELECT
 	*
@@ -112,6 +127,7 @@ SELECT
 ```
 
 13. Wie viele \'Wassermann\'s sind in der Datenbank eingetragen
+
 ```SQL
 SELECT
     COUNT(*)
@@ -119,12 +135,14 @@ SELECT
     WHERE `nachname` = 'Wassermann'
 ```
 14. Wie viele \`Nachname\`n sind in der Datenbank eingetragen
+
 ```SQL
 SELECT COUNT(DISTINCT `nachname`) AS 'Anzahl'
 	FROM `kunden`
 ```
 
 15. Zeigen Sie alle Nahrungsmittel mit allen `Lieferanten`
+
 ```SQL
 SELECT `bezeichnung`, `firma` FROM `lieferanten`
 	NATURAL JOIN `hauptgerichtlieferant`
@@ -137,8 +155,15 @@ SELECT `bezeichnung`, `firma` FROM `lieferanten`
     NATURAL JOIN `beilagen`
 ```
 
-16. Zeigen Sie alle Kunden und ihre bestellten Hauptgerichte. Das Ergebnis soll wie folgt angezeigt werden:
+16. Zeigen Sie alle Kunden und ihre bestellten Hauptgerichte, sortiert nach dem Datum, das neueste zuerst. Das Ergebnis soll wie folgt angezeigt werden:
 Kunde (enthält \`vorname\` und \`nachname\`, 'Datum', 'Menge', 'Bezeichnung', 'Preis')
+
+|Kunde|Datum|Menge|Bezeichnung|Preis|
+|-|-|-|-|-|
+|Thomas Meiermann|2020.07.28 12:06:52|1|Salatblatt|1|
+|Susi Sorglos|2020-07-28|12:06:45|1|Frikadellen|21|
+|...|
+
 ```SQL
 SELECT
 	CONCAT(`vorname`, ' ', `nachname`) AS 'Kunde',
@@ -150,6 +175,7 @@ SELECT
     NATURAL JOIN `bestellungen`
     NATURAL JOIN `bestellunghauptgericht`
     NATURAL JOIN `hauptgerichte`
+    ORDER BY `datum` DESC
 ```
 
 17. Ändern Sie die Stadt von 'Susi Sorglos' in 'Wiesbaden'
@@ -168,6 +194,7 @@ DELETE FROM `kunden`
 
 20.
 Finden Sie alle Kunden, die noch nie Reserviert haben
+
 ```SQL
 SELECT
     `vorname` AS 'Vorname',
@@ -180,6 +207,7 @@ SELECT
 
 # Abfragen mit Gruppierungen
 1. Listen Sie die Städte der Kunden und die Anzahl der Kunden aus der jeweiligen Stadt, zeigen Sie die Stadt mit den meisten Kunden zuerst
+
 ```SQL
 SELECT
     `wohnort` AS 'Wohnort',
@@ -190,6 +218,7 @@ SELECT
 ```
 
 2. Wie oft kommt jeder \`Nachname\` vor
+
 ```SQL
 SELECT `nachname`, COUNT(*)
 	FROM `kunden`
@@ -197,6 +226,7 @@ SELECT `nachname`, COUNT(*)
 ```
 
 3. Wie viele Hauptgerichte werden von jedem Lieferanten geliefert
+
 ```SQL
 SELECT
     `firma` AS 'Firma',
@@ -207,6 +237,7 @@ SELECT
 ```
 
 4. Wie viele Nahrungsmittel werden von jedem Lieferanten geliefert
+
 ```SQL
 SELECT
 	`firma` AS 'Firma',
@@ -227,6 +258,7 @@ SELECT
 ```
 
 5. Listen Sie alle Städte auf, aus denen mindestens zwei Kunden stammen
+
 ```SQL
 SELECT
     `wohnort`,
