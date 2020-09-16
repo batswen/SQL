@@ -58,8 +58,8 @@ SELECT
 
 6. Listen Sie alle Kunden auf, die bereits eine Reservierung gemacht haben
 ```SQL
-SELECT
-    DISTINCT `name`
+SELECT DISTINCT
+    `nachname`, `vorname`
     FROM `kunden`
     NATURAL JOIN `reservierungen`
 ```
@@ -67,7 +67,7 @@ SELECT
 7. Listen Sie alle Kunden auf und fügen Sie eventuelle Reservierungen hinzu. Das Ergebnis soll nur den Namen und das Datum beinhalten
 ```SQL
 SELECT
-    `name` AS 'Kunde', `datum` AS 'Datum'
+    CONCAT(`vorname`, `nachname` AS 'Kunde', `datum` AS 'Datum'
     FROM `kunden`
     LEFT OUTER JOIN `reservierungen`
     USING(`idKunde`)
@@ -82,8 +82,7 @@ SELECT
 
 9. Nennen Sie die Städte (jeweils nur einmal)
 ```SQL
-SELECT
-    DISTINCT `wohnort`
+SELECT DISTINCT `wohnort`
     FROM `kunden`
 ```
 
