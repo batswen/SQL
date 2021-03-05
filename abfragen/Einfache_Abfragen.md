@@ -50,6 +50,7 @@ SELECT
 ```
 
 5. Wie viele Kunden leben in Niedernhausen, das Ergebnis soll wie folgt aussehen:
+
 |Ergebnis|
 |-|
 |{ANZAHL} Kunden wohnen in Niedernhausen|
@@ -77,7 +78,7 @@ SELECT DISTINCT
 
 ```SQL
 SELECT
-    CONCAT(`vorname`, `nachname` AS 'Kunde', `datum` AS 'Datum')
+    CONCAT(`vorname`, ' ', `nachname` AS 'Kunde', `datum` AS 'Datum')
     FROM `kunden`
     LEFT OUTER JOIN `reservierungen`
     USING(`idKunde`)
@@ -161,7 +162,7 @@ Kunde (enthält \`vorname\` und \`nachname\`, 'Datum', 'Menge', 'Bezeichnung', '
 |Kunde|Datum|Menge|Bezeichnung|Preis|
 |-|-|-|-|-|
 |Thomas Meiermann|2020.07.28 12:06:52|1|Salatblatt|1|
-|Susi Sorglos|2020-07-28|12:06:45|1|Frikadellen|21|
+|Susi Sorglos|2020-07-28 12:06:45|1|Frikadellen|21|
 |...|
 
 ```SQL
@@ -190,7 +191,7 @@ UPDATE `kunden`
 DELETE FROM `kunden`
     WHERE `vorname` = 'Susi' AND `nachname` = 'Sorglos'
 ```
-19. Warum schlögt diese Anweisung fehl
+19. Warum schlägt diese Anweisung fehl
 
 20.
 Finden Sie alle Kunden, die noch nie Reserviert haben
